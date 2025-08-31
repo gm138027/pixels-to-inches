@@ -2,7 +2,6 @@ import type { AppProps } from 'next/app'
 import '../styles/globals.css'
 import { onCLS, onINP, onFCP, onLCP, onTTFB } from 'web-vitals'
 import { NextIntlClientProvider } from 'next-intl'
-import type { AbstractIntlMessages } from 'next-intl'
 import { useEffect, useState } from 'react'
 
 // Web Vitals性能监控函数
@@ -27,9 +26,12 @@ function sendToAnalytics(metric: {
   // analytics.track('Web Vitals', metric);
 }
 
+// 定义翻译消息的类型
+type TranslationMessages = Record<string, unknown>;
+
 export default function App({ Component, pageProps }: AppProps) {
-  // 使用更宽松的类型定义来支持复杂的嵌套翻译结构
-  const [messages, setMessages] = useState<any | null>(null);
+  // 使用更具体的类型定义来支持复杂的嵌套翻译结构
+  const [messages, setMessages] = useState<TranslationMessages | null>(null);
 
   useEffect(() => {
     // 动态加载并合并多个翻译文件

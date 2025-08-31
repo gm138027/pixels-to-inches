@@ -1,0 +1,286 @@
+{
+  "common": {
+    "title": "Pixels to Inches Converter",
+    "description": "Convert pixels to inches easily with our free online calculator. Perfect for designers, developers, and anyone working with digital measurements.",
+    "calculate": "Calculate",
+    "clear": "Clear",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "copySuccess": "✓"
+  },
+  "modeSelector": {
+    "forScreens": "For screens",
+    "forPrinters": "For printers",
+    "monitorAlt": "Monitor",
+    "printerAlt": "Printer",
+    "screenModeAriaLabel": "Switch to screen mode, use PPI for calculation",
+    "printModeAriaLabel": "Switch to print mode, use DPI for calculation"
+  },
+  "converter": {
+    "pixels": "pixels",
+    "inches": "Inches",
+    "ppi": "PPI",
+    "dpi": "DPI",
+    "width": "Width",
+    "height": "high",
+    "widthPx": "Width(px)",
+    "heightPx": "high(px)",
+    "widthIn": "Width(in)",
+    "heightIn": "high(in)",
+    "copy": "copy",
+    "x": "x",
+    "enterPixelValue": "Enter pixel value",
+    "enterInchValue": "Enter inch value",
+    "enterWidthPixels": "Enter width in pixels",
+    "enterHeightPixels": "Enter height in pixels",
+    "enterWidthInches": "Enter width in inches",
+    "enterHeightInches": "Enter height in inches",
+    "copyPixelValue": "Copy pixel value to clipboard",
+    "copyInchValue": "Copy inch value to clipboard",
+    "copyPixelDimensions": "Copy pixel dimensions to clipboard",
+    "copyInchDimensions": "Copy inch dimensions to clipboard",
+    "setPpiValue": "Set screen PPI value (pixels per inch)",
+    "setDpiValue": "Set print DPI value (dots per inch)",
+    "increasePpi": "Increase PPI value",
+    "decreasePpi": "Decrease PPI value",
+    "increaseDpi": "Increase DPI value",
+    "decreaseDpi": "Decrease DPI value",
+    "uploadHint": "If you don't know the image PPI or DPI, click",
+    "uploadHintEnd": "to find the image details."
+  },
+  "imageUpload": {
+    "uploadImage": "Upload Image"
+  },
+  "imageInfo": {
+    "xResolution": "X-Resolution",
+    "yResolution": "Y-Resolution",
+    "pixel": "Pixel",
+    "size": "Size",
+    "fileSize": "File Size",
+    "dpi": "DPI",
+    "pixels": "pixels",
+    "inches": "inches"
+  },
+  "imageAnalyzer": {
+    "processingFailed": "Image processing failed",
+    "collapsePanel": "Collapse image information panel"
+  },
+  "header": {
+    "homeAriaLabel": "Pixels to Inches Converter - Home",
+    "logoAlt": "Pixels to Inches Converter Logo"
+  },
+  "languageSelector": {
+    "selectLanguage": "Select language",
+    "english": "English"
+  },
+  "navigation": {
+    "home": "Home",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "breadcrumbAriaLabel": "Breadcrumb"
+  },
+  "footer": {
+    "description": "Free online tool for converting pixels to inches. Perfect for designers, developers, and digital professionals.",
+    "quickLinks": "Quick Links",
+    "converterTool": "Converter Tool",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "features": "Features",
+    "realTimeConversion": "Real-time conversion",
+    "imageDpiAnalysis": "Image DPI analysis",
+    "screenPrintModes": "Screen & Print modes",
+    "responsiveDesign": "Responsive design",
+    "copyright": "© {year} pixelstoinches.com - Free online conversion tool for designers and developers",
+    "madeWith": "Made with ❤️ for the creative community"
+  },
+  "seo": {
+    "h1": "Convert pixels to inches online for free",
+    "intro": {
+      "title": "Convert pixels to inches online for free",
+      "content": "With this pixels to inches converter, easily convert pixels to inches online for screen or printer, no registration and download, completely free."
+    },
+    "howTo": {
+      "title": "How to convert pixels to inches",
+      "content": "Converting pixels to inches is straightforward with our tool:",
+      "steps": {
+        "0": "Choose your conversion mode: Select \"For screens\" (PPI) for digital displays or \"For printers\" (DPI) for print materials",
+        "1": "Enter pixel values: Input your pixel measurements in the designated field",
+        "2": "Set the resolution: Adjust PPI (typically 96 for screens) or DPI (typically 300 for printing)",
+        "3": "Get instant results: View the converted inch values automatically",
+        "4": "Copy or save: Use the copy button to save your results for later use"
+      },
+      "formula": "Formula: Inches = Pixels ÷ DPI (or PPI)"
+    },
+    "otherWays": {
+      "title": "Other ways to convert pixels to inches （Take 120 pixels to inches and 1920x1080 pixels to inches as examples）",
+      "intro": "There are several common methods to convert pixels to inches, each suitable for different scenarios:",
+      "methods": {
+        "0": "Manual calculation using the basic formula",
+        "1": "Using online conversion tools (like our converter)",
+        "2": "Using graphic design software",
+        "3": "Using spreadsheet calculations",
+        "4": "Mobile apps and browser extensions"
+      },
+      "methodDetails": {
+        "manual": "Formula: Inches = Pixels ÷ DPI (or PPI)",
+        "online": "Quick and accurate with preset DPI/PPI values",
+        "software": "Adobe Photoshop, GIMP, or other design tools with built-in conversion features",
+        "spreadsheet": "Excel or Google Sheets with custom formulas",
+        "mobile": "Dedicated conversion apps for quick calculations"
+      },
+      "examples": {
+        "title": "Practical Examples:",
+        "example1": {
+          "title": "Example 1: Converting 120 pixels to inches",
+          "screen96": "For screens (96 PPI): 120 ÷ 96 = 1.25 inches",
+          "screen192": "For high-resolution screens (192 PPI): 120 ÷ 192 = 0.625 inches",
+          "print300": "For printing (300 DPI): 120 ÷ 300 = 0.4 inches"
+        },
+        "example2": {
+          "title": "Example 2: Converting 1920x1080 pixels to inches",
+          "screen96Title": "For standard monitors (96 PPI):",
+          "screen96": "For standard monitors (96 PPI): Width: 1920 ÷ 96 = 20 inches, Height: 1080 ÷ 96 = 11.25 inches, Result: 20 × 11.25 inches",
+          "screen144Title": "For high-DPI displays (144 PPI):",
+          "screen144": "For high-DPI displays (144 PPI): Width: 1920 ÷ 144 = 13.33 inches, Height: 1080 ÷ 144 = 7.5 inches, Result: 13.33 × 7.5 inches",
+          "print300Title": "For printing (300 DPI):",
+          "print300": "For printing (300 DPI): Width: 1920 ÷ 300 = 6.4 inches, Height: 1080 ÷ 300 = 3.6 inches, Result: 6.4 × 3.6 inches"
+        }
+      }
+    },
+    "features": {
+      "title": "Features of our Pixel to Inches Converter",
+      "list": {
+        "0": "Bi-directional conversion: Convert both pixels to inches AND inches to pixels seamlessly",
+        "1": "Dual conversion modes: Separate settings for screens (PPI) and printers (DPI)",
+        "2": "Real-time conversion: Instant results as you type in either direction",
+        "3": "Image analysis: Upload images to automatically detect DPI/PPI values",
+        "4": "Copy functionality: One-click copying of conversion results",
+        "5": "Mobile responsive: Works perfectly on all devices",
+        "6": "No registration required: Completely free and anonymous",
+        "7": "High precision: Accurate calculations up to 4 decimal places",
+        "8": "Multiple format support: Handles various image formats for DPI detection"
+      }
+    },
+    "commonUses": {
+      "title": "Common uses of pixels to inches converter",
+      "list": {
+        "0": "Web design: Converting CSS pixel values to physical print dimensions",
+        "1": "Graphic design: Ensuring proper sizing for both digital and print media",
+        "2": "Photography: Calculating print sizes from digital image dimensions",
+        "3": "Mobile app development: Converting between different screen densities",
+        "4": "Print preparation: Setting up artwork for physical printing",
+        "5": "Screen sizing: Understanding actual display dimensions",
+        "6": "Marketing materials: Creating assets that work across digital and print",
+        "7": "E-commerce: Product image sizing for catalogs and websites"
+      }
+    },
+    "whyChoose": {
+      "title": "Why choose our Pixel to Inches Converter",
+      "list": {
+        "0": "Accuracy: Professional-grade conversion calculations",
+        "1": "Speed: Instant results without delays",
+        "2": "Versatility: Supports both screen and print workflows",
+        "3": "User-friendly: Clean, intuitive interface",
+        "4": "Free forever: No hidden costs or limitations",
+        "5": "Privacy focused: No data storage or tracking",
+        "6": "Regular updates: Continuously improved features",
+        "7": "Cross-platform: Works on any device with a web browser",
+        "8": "Professional grade: Trusted by designers and developers worldwide"
+      }
+    },
+    "dpiPpi": {
+      "title": "DPI and PPI explained - Understanding screen vs print conversion",
+      "ppi": {
+        "title": "PPI (Pixels Per Inch)",
+        "description": "refers to screen displays and digital devices. Common PPI values:",
+        "values": {
+          "0": "Standard monitors: 96 PPI",
+          "1": "High-resolution displays: 144-192 PPI",
+          "2": "Retina displays: 220+ PPI",
+          "3": "Mobile devices: 300-500+ PPI"
+        }
+      },
+      "dpi": {
+        "title": "DPI (Dots Per Inch)",
+        "description": "applies to printing and physical output. Standard DPI values:",
+        "values": {
+          "0": "Draft printing: 150 DPI",
+          "1": "Standard printing: 300 DPI",
+          "2": "High-quality printing: 600+ DPI",
+          "3": "Professional photo printing: 1200+ DPI"
+        }
+      },
+      "conclusion": "Understanding the difference ensures accurate conversions for your specific use case."
+    },
+    "commonExamples": {
+      "title": "Common pixel to inches examples",
+      "screen": {
+        "title": "Screen Conversions (96 PPI)",
+        "examples": {
+          "0": "96 pixels = 1 inch",
+          "1": "192 pixels = 2 inches",
+          "2": "768 pixels = 8 inches",
+          "3": "1024 pixels = 10.67 inches"
+        }
+      },
+      "print": {
+        "title": "Print Conversions (300 DPI)",
+        "examples": {
+          "0": "300 pixels = 1 inch",
+          "1": "600 pixels = 2 inches",
+          "2": "1500 pixels = 5 inches",
+          "3": "3000 pixels = 10 inches"
+        }
+      },
+      "mobile": {
+        "title": "Mobile Screen Examples",
+        "examples": {
+          "0": "iPhone 17: 6.1 inches (390×844 CSS pixels)",
+          "1": "iPad: 10.9 inches (820×1180 CSS pixels)",
+          "2": "Android phones: Varies by manufacturer and model"
+        }
+      }
+    },
+    "faq": {
+      "title": "pixels to inches FAQ",
+      "questions": {
+        "0": {
+          "question": "What is a pixel?",
+          "answer": "A pixel is the smallest unit of a digital image or display. It stands for \"picture element\" and represents a single point of color in a digital image or on a screen."
+        },
+        "1": {
+          "question": "How to convert pixels to inches?",
+          "answer": "Use the formula: Inches = Pixels ÷ DPI (or PPI). For screens, typically use 96 PPI. For printing, use 300 DPI or higher."
+        },
+        "2": {
+          "question": "How many pixels is 1 inch?",
+          "answer": "It depends on the resolution. At 96 PPI (standard screen), 1 inch = 96 pixels. At 300 DPI (standard print), 1 inch = 300 pixels."
+        },
+        "3": {
+          "question": "How many inches are in a pixel?",
+          "answer": "At 96 PPI: 1 pixel = 0.0104 inches. At 300 DPI: 1 pixel = 0.0033 inches. The exact value depends on your display or print resolution."
+        },
+        "4": {
+          "question": "Is 300 pixels an inch?",
+          "answer": "Yes, when using 300 DPI resolution (common for printing). However, on standard computer screens (96 PPI), 300 pixels equals about 3.125 inches."
+        },
+        "5": {
+          "question": "Can I convert pixels to inches on my phone?",
+          "answer": "Absolutely! Our converter is fully responsive and works perfectly on mobile devices, tablets, and smartphones."
+        },
+        "6": {
+          "question": "What image formats can Pixels to Inches Converter use?",
+          "answer": "Our tool supports JPEG, PNG, GIF, BMP, TIFF, and WebP formats for automatic DPI detection when you upload images."
+        },
+        "7": {
+          "question": "Do you store the images I upload?",
+          "answer": "No, we respect your privacy. All image processing happens locally in your browser, and no files are stored on our servers."
+        },
+        "8": {
+          "question": "Can I convert pixels to inches infinitely?",
+          "answer": "Yes, there are no limits on the number of conversions you can perform. Our tool is completely free with unlimited usage."
+        }
+      }
+    }
+  }
+}

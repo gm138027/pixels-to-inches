@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app'
 import '../styles/globals.css'
 import { onCLS, onINP, onFCP, onLCP, onTTFB } from 'web-vitals'
 import { NextIntlClientProvider } from 'next-intl'
+import { AnalyticsProvider } from '../components/analytics/AnalyticsProvider'
 
 // Web Vitals性能监控函数
 function sendToAnalytics(metric: {
@@ -38,11 +39,13 @@ export default function App({ Component, pageProps }: AppProps) {
 
   // 使用服务端渲染的翻译，通过pageProps传递messages
   return (
-    <NextIntlClientProvider 
-      locale={pageProps.locale || 'en'}
-      messages={pageProps.messages}
-    >
-      <Component {...pageProps} />
-    </NextIntlClientProvider>
+    <AnalyticsProvider>
+      <NextIntlClientProvider 
+        locale={pageProps.locale || 'en'}
+        messages={pageProps.messages || {}}
+      >
+        <Component {...pageProps} />
+      </NextIntlClientProvider>
+    </AnalyticsProvider>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { convertPixelsToInches, convertInchesToPixels } from '../../lib/conversion';
 import { useTranslations } from 'next-intl'; // 导入翻译函数
+import { useAnalyticsContext } from '../analytics/AnalyticsProvider'; // 导入追踪上下文
 
 interface SimpleConverterProps {
   onCopy: (text: string, type: string) => void;
@@ -8,11 +9,24 @@ interface SimpleConverterProps {
 }
 
 export default function SimpleConverter({ onCopy, copied }: SimpleConverterProps) {
-  const [pixels, setPixels] = useState('');
-  const [inches, setInches] = useState('');
-  const [ppi, setPpi] = useState(96); // 独立的PPI状态
+  const [pixels, setPixels] = useState<string>('');
+  const [inches, setInches] = useState<string>('');
+  const [ppi, setPpi] = useState<number>(96); // 独立的PPI状态
   const [activeInput, setActiveInput] = useState<'pixels' | 'inches' | null>(null); // 跟踪当前活跃的输入框
   const t = useTranslations(); // 获取翻译函数
+  const { trackEvent } = useAnalyticsContext(); // 获取追踪函数
+
+  // 追踪用户输入
+  const trackInput = (inputType: 'pixels' | 'inches' | 'ppi', value: string | number) => {
+    trackEvent({
+      event: 'user_input',
+      category: 'converter',
+      action: 'input_value',
+      label: inputType,
+      value: typeof value === 'string' ? parseFloat(value) || 0 : value,
+      timestamp: Date.now()
+    });
+  };
 
   // 像素到英寸的实时转换计算（只有当像素是活跃输入时才更新英寸）
   useEffect(() => {
@@ -30,22 +44,37 @@ export default function SimpleConverter({ onCopy, copied }: SimpleConverterProps
     }
   }, [inches, ppi, activeInput]);
 
+  // 处理像素输入变化
   const handlePixelsChange = (value: string) => {
     setActiveInput('pixels'); // 标记像素输入框为活跃状态
     setPixels(value);
     if (!value) {
       setInches('');
       setActiveInput(null); // 清空时重置活跃状态
+    } else {
+      // 追踪用户输入
+      trackInput('pixels', value);
     }
   };
 
+  // 处理英寸输入变化
   const handleInchesChange = (value: string) => {
     setActiveInput('inches'); // 标记英寸输入框为活跃状态
     setInches(value);
     if (!value) {
       setPixels('');
       setActiveInput(null); // 清空时重置活跃状态
+    } else {
+      // 追踪用户输入
+      trackInput('inches', value);
     }
+  };
+
+  // 处理PPI变化
+  const handlePpiChange = (value: number) => {
+    setPpi(value);
+    // 追踪PPI修改
+    trackInput('ppi', value);
   };
 
   return (
@@ -110,7 +139,7 @@ export default function SimpleConverter({ onCopy, copied }: SimpleConverterProps
               id="ppi-input"
               type="number"
               value={ppi}
-              onChange={(e) => setPpi(parseFloat(e.target.value) || 96)}
+              onChange={(e) => handlePpiChange(parseFloat(e.target.value) || 96)}
               className="w-full pl-10 pr-8 py-2 border border-neutral-300 focus:ring-2 focus:ring-neutral-500 focus:border-transparent text-center text-lg [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [-moz-appearance:textfield]"
               min="1"
               max="2400"
@@ -118,14 +147,14 @@ export default function SimpleConverter({ onCopy, copied }: SimpleConverterProps
             />
             <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex flex-col">
               <button
-                onClick={() => setPpi(prev => Math.min(prev + 1, 2400))}
+                onClick={() => handlePpiChange(Math.min(ppi + 1, 2400))}
                 className="text-neutral-400 hover:text-neutral-600 text-xs leading-none"
                 aria-label={t('converter.increasePpi')}
               >
                 ▲
               </button>
               <button
-                onClick={() => setPpi(prev => Math.max(prev - 1, 1))}
+                onClick={() => handlePpiChange(Math.max(ppi - 1, 1))}
                 className="text-neutral-400 hover:text-neutral-600 text-xs leading-none"
                 aria-label={t('converter.decreasePpi')}
               >

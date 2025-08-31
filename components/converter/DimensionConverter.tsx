@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { convertPixelsToInches, convertInchesToPixels } from '../../lib/conversion';
 import { useTranslations } from 'next-intl'; // 导入翻译函数
+import { useAnalyticsContext } from '../analytics/AnalyticsProvider'; // 导入追踪上下文
 
 interface DimensionConverterProps {
   onCopy: (text: string, type: string) => void;
@@ -8,13 +9,26 @@ interface DimensionConverterProps {
 }
 
 export default function DimensionConverter({ onCopy, copied }: DimensionConverterProps) {
-  const [widthPx, setWidthPx] = useState('');
-  const [heightPx, setHeightPx] = useState('');
-  const [widthIn, setWidthIn] = useState('');
-  const [heightIn, setHeightIn] = useState('');
-  const [dpi, setDpi] = useState(300); // 独立的DPI状态
+  const [widthPx, setWidthPx] = useState<string>('');
+  const [heightPx, setHeightPx] = useState<string>('');
+  const [widthIn, setWidthIn] = useState<string>('');
+  const [heightIn, setHeightIn] = useState<string>('');
+  const [dpi, setDpi] = useState<number>(300); // 独立的DPI状态
   const [activeInput, setActiveInput] = useState<'pixels' | 'inches' | null>(null); // 跟踪当前活跃的输入类型
   const t = useTranslations(); // 获取翻译函数
+  const { trackEvent } = useAnalyticsContext(); // 获取追踪函数
+
+  // 追踪用户输入
+  const trackInput = (inputType: 'width_px' | 'height_px' | 'width_in' | 'height_in' | 'dpi', value: string | number) => {
+    trackEvent({
+      event: 'user_input',
+      category: 'converter',
+      action: 'input_value',
+      label: inputType,
+      value: typeof value === 'string' ? parseFloat(value) || 0 : value,
+      timestamp: Date.now()
+    });
+  };
 
   // 像素到英寸的实时转换计算（只有当像素是活跃输入时才更新英寸）
   useEffect(() => {
@@ -44,44 +58,58 @@ export default function DimensionConverter({ onCopy, copied }: DimensionConverte
     }
   }, [widthIn, heightIn, dpi, activeInput]);
 
+  // 处理宽度像素输入变化
   const handleWidthPxChange = (value: string) => {
-    setActiveInput('pixels'); // 标记像素输入为活跃状态
+    setActiveInput('pixels');
     setWidthPx(value);
     if (!value) {
       setWidthIn('');
-      // 如果两个像素输入都为空，则重置活跃状态
-      if (!value && !heightPx) setActiveInput(null);
+      setActiveInput(null);
+    } else {
+      trackInput('width_px', value);
     }
   };
 
+  // 处理高度像素输入变化
   const handleHeightPxChange = (value: string) => {
-    setActiveInput('pixels'); // 标记像素输入为活跃状态
+    setActiveInput('pixels');
     setHeightPx(value);
     if (!value) {
       setHeightIn('');
-      // 如果两个像素输入都为空，则重置活跃状态
-      if (!widthPx && !value) setActiveInput(null);
+      setActiveInput(null);
+    } else {
+      trackInput('height_px', value);
     }
   };
 
+  // 处理宽度英寸输入变化
   const handleWidthInChange = (value: string) => {
-    setActiveInput('inches'); // 标记英寸输入为活跃状态
+    setActiveInput('inches');
     setWidthIn(value);
     if (!value) {
       setWidthPx('');
-      // 如果两个英寸输入都为空，则重置活跃状态
-      if (!value && !heightIn) setActiveInput(null);
+      setActiveInput(null);
+    } else {
+      trackInput('width_in', value);
     }
   };
 
+  // 处理高度英寸输入变化
   const handleHeightInChange = (value: string) => {
-    setActiveInput('inches'); // 标记英寸输入为活跃状态
+    setActiveInput('inches');
     setHeightIn(value);
     if (!value) {
       setHeightPx('');
-      // 如果两个英寸输入都为空，则重置活跃状态
-      if (!widthIn && !value) setActiveInput(null);
+      setActiveInput(null);
+    } else {
+      trackInput('height_in', value);
     }
+  };
+
+  // 处理DPI变化
+  const handleDpiChange = (value: number) => {
+    setDpi(value);
+    trackInput('dpi', value);
   };
 
   return (
@@ -177,7 +205,7 @@ export default function DimensionConverter({ onCopy, copied }: DimensionConverte
               id="dpi-input"
               type="number"
               value={dpi}
-              onChange={(e) => setDpi(parseFloat(e.target.value) || 300)}
+              onChange={(e) => handleDpiChange(parseFloat(e.target.value) || 300)}
               className="w-full pl-10 pr-8 py-2 border border-neutral-300 focus:ring-2 focus:ring-neutral-500 focus:border-transparent text-center text-lg [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [-moz-appearance:textfield]"
               min="1"
               max="2400"
@@ -185,14 +213,14 @@ export default function DimensionConverter({ onCopy, copied }: DimensionConverte
             />
             <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex flex-col">
               <button
-                onClick={() => setDpi(prev => Math.min(prev + 1, 2400))}
+                onClick={() => handleDpiChange(Math.min(dpi + 1, 2400))}
                 className="text-neutral-400 hover:text-neutral-600 text-xs leading-none"
                 aria-label={t('converter.increaseDpi')}
               >
                 ▲
               </button>
               <button
-                onClick={() => setDpi(prev => Math.max(prev - 1, 1))}
+                onClick={() => handleDpiChange(Math.max(dpi - 1, 1))}
                 className="text-neutral-400 hover:text-neutral-600 text-xs leading-none"
                 aria-label={t('converter.decreaseDpi')}
               >

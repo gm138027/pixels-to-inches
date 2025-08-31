@@ -111,6 +111,8 @@ export default function Layout({
             })
           }}
         />
+        
+
       </Head>
 
       <div className="min-h-screen bg-white flex flex-col">

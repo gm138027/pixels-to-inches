@@ -59,41 +59,41 @@ export default function SeoContent() {
         {/* 方法列表 */}
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           <div className="bg-neutral-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-neutral-900 mb-2">
+            <h3 className="font-semibold text-neutral-900 mb-2">
               {t('seo.otherWays.methods.0')}
-            </h4>
+            </h3>
             <p className="text-neutral-600 text-sm">
               {t('seo.otherWays.methodDetails.manual')}
             </p>
           </div>
           <div className="bg-neutral-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-neutral-900 mb-2">
+            <h3 className="font-semibold text-neutral-900 mb-2">
               {t('seo.otherWays.methods.1')}
-            </h4>
+            </h3>
             <p className="text-neutral-600 text-sm">
               {t('seo.otherWays.methodDetails.online')}
             </p>
           </div>
           <div className="bg-neutral-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-neutral-900 mb-2">
+            <h3 className="font-semibold text-neutral-900 mb-2">
               {t('seo.otherWays.methods.2')}
-            </h4>
+            </h3>
             <p className="text-neutral-600 text-sm">
               {t('seo.otherWays.methodDetails.software')}
             </p>
           </div>
           <div className="bg-neutral-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-neutral-900 mb-2">
+            <h3 className="font-semibold text-neutral-900 mb-2">
               {t('seo.otherWays.methods.3')}
-            </h4>
+            </h3>
             <p className="text-neutral-600 text-sm">
               {t('seo.otherWays.methodDetails.spreadsheet')}
             </p>
           </div>
           <div className="bg-neutral-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-neutral-900 mb-2">
+            <h3 className="font-semibold text-neutral-900 mb-2">
               {t('seo.otherWays.methods.4')}
-            </h4>
+            </h3>
             <p className="text-neutral-600 text-sm">
               {t('seo.otherWays.methodDetails.mobile')}
             </p>

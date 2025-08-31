@@ -65,10 +65,10 @@ export default function Footer() {
         {/* 底部版权信息 */}
         <div className="border-t border-neutral-200 pt-6 mt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-            <p className="text-sm text-neutral-500">
+            <p className="text-sm text-neutral-700">
               {t('footer.copyright', { year: currentYear })}
             </p>
-            <p className="text-xs text-neutral-400">
+            <p className="text-xs text-neutral-600">
               {t('footer.madeWith')}
             </p>
           </div>

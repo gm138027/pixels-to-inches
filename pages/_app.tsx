@@ -2,8 +2,6 @@ import type { AppProps } from 'next/app'
 import '../styles/globals.css'
 import { onCLS, onINP, onFCP, onLCP, onTTFB } from 'web-vitals'
 import { NextIntlClientProvider } from 'next-intl'
-import type { AbstractIntlMessages } from 'next-intl'
-import { useEffect, useState } from 'react'
 
 // Web Vitals性能监控函数
 function sendToAnalytics(metric: {
@@ -28,36 +26,6 @@ function sendToAnalytics(metric: {
 }
 
 export default function App({ Component, pageProps }: AppProps) {
-  // 使用AbstractIntlMessages类型，并通过类型断言处理复杂嵌套结构
-  const [messages, setMessages] = useState<AbstractIntlMessages | null>(null);
-
-  useEffect(() => {
-    // 动态加载并合并多个翻译文件
-    const loadAllTranslations = async () => {
-      try {
-        // 加载主翻译文件
-        const mainTranslations = await import('../public/locales/en.json');
-
-        // 加载其他翻译文件
-        const privacyTranslations = await import('../public/locales/privacy-en.json');
-        const termsTranslations = await import('../public/locales/terms-en.json');
-
-        // 合并所有翻译
-        const mergedMessages = {
-          ...mainTranslations.default,
-          privacy: privacyTranslations.default,
-          terms: termsTranslations.default
-        };
-
-        setMessages(mergedMessages as AbstractIntlMessages);
-      } catch (error) {
-        console.error('Failed to load translations:', error);
-      }
-    };
-
-    loadAllTranslations();
-  }, []);
-
   // 只在客户端初始化性能监控
   if (typeof window !== 'undefined') {
     // 监控各项Core Web Vitals指标
@@ -68,17 +36,11 @@ export default function App({ Component, pageProps }: AppProps) {
     onTTFB(sendToAnalytics); // 首字节时间（Time to First Byte）
   }
 
-  if (!messages) {
-    // 在翻译文件加载前显示简单的加载指示器
-    return <div className="flex items-center justify-center min-h-screen">
-      <div className="w-8 h-8 border-2 border-gray-300 border-t-neutral-800 rounded-full animate-spin"></div>
-    </div>;
-  }
-
+  // 使用服务端渲染的翻译，通过pageProps传递messages
   return (
-    <NextIntlClientProvider
-      locale="en"
-      messages={messages}
+    <NextIntlClientProvider 
+      locale={pageProps.locale || 'en'}
+      messages={pageProps.messages}
     >
       <Component {...pageProps} />
     </NextIntlClientProvider>

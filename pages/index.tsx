@@ -2,6 +2,7 @@ import Layout from '../components/layout/Layout'
 import PixelsToInchesConverter from '../components/converter/PixelsToInchesConverter'
 import SeoContent from '../components/seo/SeoContent'
 import { useTranslations } from 'next-intl'
+import { GetStaticProps } from 'next'
 
 export default function Home() {
   const t = useTranslations();
@@ -32,3 +33,28 @@ export default function Home() {
     </Layout>
   )
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const locale = 'en';
+  
+  // 服务端加载并合并所有翻译文件
+  const [main, privacy, terms] = await Promise.all([
+    import(`../public/locales/${locale}.json`),
+    import(`../public/locales/privacy-${locale}.json`),
+    import(`../public/locales/terms-${locale}.json`)
+  ]);
+  
+  // 合并翻译对象
+  const messages = {
+    ...main.default,
+    privacy: privacy.default,
+    terms: terms.default
+  };
+
+  return {
+    props: {
+      messages,
+      locale
+    }
+  };
+};

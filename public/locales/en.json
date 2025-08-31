@@ -1,11 +1,5 @@
 {
   "common": {
-    "title": "Pixels to Inches Converter",
-    "description": "Convert pixels to inches easily with our free online calculator. Perfect for designers, developers, and anyone working with digital measurements.",
-    "calculate": "Calculate",
-    "clear": "Clear",
-    "copy": "Copy",
-    "copied": "Copied!",
     "copySuccess": "✓"
   },
   "modeSelector": {
@@ -94,9 +88,11 @@
     "madeWith": "Made with ❤️ for the creative community"
   },
   "seo": {
-    "h1": "Convert pixels to inches online for free",
+    "pageTitle": "Convert pixels to inches online for free",
+    "pageDescription": "With this pixels to inches converter, easily convert pixels to inches online for screen or printer, no registration and download, completely free.",
+    "h1": "Convert pixels (px) to inches (in) online for free",
     "intro": {
-      "title": "Convert pixels to inches online for free",
+      "title": "Pixel to Inches - Convert pixels to inches online for free",
       "content": "With this pixels to inches converter, easily convert pixels to inches online for screen or printer, no registration and download, completely free."
     },
     "howTo": {
@@ -112,7 +108,7 @@
       "formula": "Formula: Inches = Pixels ÷ DPI (or PPI)"
     },
     "otherWays": {
-      "title": "Other ways to convert pixels to inches （Take 120 pixels to inches and 1920x1080 pixels to inches as examples）",
+      "title": "Other ways to convert pixels to inches (Take 120 pixels to inches and 1920x1080 pixels to inches as examples)",
       "intro": "There are several common methods to convert pixels to inches, each suitable for different scenarios:",
       "methods": {
         "0": "Manual calculation using the basic formula",

@@ -9,8 +9,8 @@ export default function Home() {
 
   return (
     <Layout
-      title={t('seo.h1')}
-      description={t('seo.intro.content')}
+      title={t('seo.pageTitle')}
+      description={t('seo.pageDescription')}
     >
       {/* H1标题 - 只有标题，保持简洁 */}
       <div className="text-center py-8 bg-white">

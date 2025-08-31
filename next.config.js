@@ -10,7 +10,9 @@ const nextConfig = {
   // 启用实验性功能以获得更好的性能
   experimental: {
     // 启用优化的包导入
-    optimizePackageImports: ['@headlessui/react']
+    optimizePackageImports: ['@headlessui/react'],
+    // 启用Webpack 5的模块联邦
+    webpackBuildWorker: true
   },
   
   // 图片优化配置
@@ -26,6 +28,32 @@ const nextConfig = {
   
   // 压缩配置
   compress: true,
+  
+  // Webpack优化配置
+  webpack: (config, { dev, isServer }) => {
+    // 生产环境优化
+    if (!dev && !isServer) {
+      // 启用更激进的代码分割
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+          },
+          common: {
+            name: 'common',
+            minChunks: 2,
+            chunks: 'all',
+            enforce: true,
+          },
+        },
+      };
+    }
+    
+    return config;
+  },
   
   // 自定义headers - 用于SEO和安全优化
   async headers() {

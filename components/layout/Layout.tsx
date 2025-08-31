@@ -1,9 +1,18 @@
 import React from 'react';
 import Head from 'next/head';
+import Script from 'next/script';
 import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
 import Header from './Header';
 import Footer from './Footer';
+
+// Google Analytics 类型声明
+declare global {
+  interface Window {
+    dataLayer: unknown[];
+    gtag: (...args: unknown[]) => void;
+  }
+}
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -26,18 +35,6 @@ export default function Layout({
   return (
     <>
       <Head>
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9Z09C23H1"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-P9Z09C23H1');
-            `
-          }}
-        />
         
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -111,6 +108,20 @@ export default function Layout({
         
 
       </Head>
+
+      {/* Google Analytics - 优化加载 */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-P9Z09C23H1"
+        strategy="afterInteractive"
+        onLoad={() => {
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function(...args: unknown[]) {
+            window.dataLayer.push(args);
+          };
+          window.gtag('js', new Date());
+          window.gtag('config', 'G-P9Z09C23H1');
+        }}
+      />
 
       <div className="min-h-screen bg-white flex flex-col">
         {/* 导航栏 */}

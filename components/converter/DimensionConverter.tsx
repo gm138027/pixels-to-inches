@@ -87,7 +87,7 @@ export default function DimensionConverter({ onCopy, copied }: DimensionConverte
   return (
     <div className="space-y-6">
       {/* 像素尺寸行 */}
-      <div className="grid grid-cols-2 gap-6 relative">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
         <div>
           <label className="block text-lg font-medium text-neutral-900 mb-3 text-center" htmlFor="width-px-input">{t('converter.widthPx')}</label>
           <input
@@ -127,7 +127,7 @@ export default function DimensionConverter({ onCopy, copied }: DimensionConverte
       </div>
 
       {/* 英寸尺寸行 */}
-      <div className="grid grid-cols-2 gap-6 relative">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
         <div>
           <label className="block text-lg font-medium text-neutral-900 mb-3 text-center" htmlFor="width-in-input">{t('converter.widthIn')}</label>
           <input

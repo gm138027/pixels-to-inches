@@ -30,12 +30,12 @@ export default function PixelsToInchesConverter() {
     };
 
     return (
-        <div className="w-full mx-auto bg-white" style={{maxWidth: '720px'}}>
+        <div className="w-full mx-auto bg-white max-w-4xl lg:max-w-2xl">
             {/* 模式选择器 */}
             <ModeSelector selectedMode={mode} onModeChange={setMode} />
 
             {/* 主转换区域 */}
-            <div className="bg-neutral-50 border border-neutral-300 border-t-0 p-8 mb-1">
+            <div className="bg-neutral-50 border-x border-b border-neutral-300 p-8 mb-1">
                 {mode === 'screen' ? (
                     <SimpleConverter onCopy={copyToClipboard} copied={copied} />
                 ) : (

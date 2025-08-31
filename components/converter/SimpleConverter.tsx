@@ -50,7 +50,7 @@ export default function SimpleConverter({ onCopy, copied }: SimpleConverterProps
 
   return (
     <div className="space-y-8">
-      <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Pixels 输入 */}
         <div>
           <label className="block text-lg font-medium text-neutral-900 mb-3 text-center" htmlFor="pixels-input">{t('converter.pixels')}</label>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { useTranslations } from 'next-intl';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -18,6 +19,9 @@ export default function Layout({
   const router = useRouter();
   const baseUrl = 'https://pixelstoinches.com';
   const currentUrl = `${baseUrl}${router.asPath}`;
+  
+  // 获取翻译函数
+  const t = useTranslations();
 
   return (
     <>
@@ -84,30 +88,23 @@ export default function Layout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebApplication",
-              "name": "Pixels to Inches",
+              "name": t('seo.webApp.name'),
               "url": baseUrl,
               "description": description,
-              "applicationCategory": "DesignApplication",
-              "operatingSystem": "Any",
+              "applicationCategory": t('seo.webApp.category'),
+              "operatingSystem": t('seo.webApp.operatingSystem'),
               "offers": {
                 "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
+                "price": t('seo.webApp.price'),
+                "priceCurrency": t('seo.webApp.currency')
               },
               "creator": {
                 "@type": "Organization",
-                "name": "Pixels to Inches",
+                "name": t('seo.webApp.creator'),
                 "url": baseUrl
               },
-              "featureList": [
-                "Real-time pixel to inch conversion",
-                "Bidirectional conversion (pixels to inches and inches to pixels)",
-                "Screen and print mode support",
-                "Image DPI analysis",
-                "Mobile responsive design",
-                "Free to use"
-              ],
-              "browserRequirements": "Requires JavaScript. Requires HTML5."
+              "featureList": t('seo.webApp.features'),
+              "browserRequirements": t('seo.webApp.browserRequirements')
             })
           }}
         />

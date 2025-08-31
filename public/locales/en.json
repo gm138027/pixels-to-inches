@@ -90,10 +90,11 @@
   "seo": {
     "pageTitle": "Convert pixels to inches online for free",
     "pageDescription": "With this pixels to inches converter, easily convert pixels to inches online for screen or printer, no registration and download, completely free.",
-    "h1": "Convert pixels (px) to inches (in) online for free",
+    "h1": "pixels to inches converter",
+    "h1Description": "Easily convert pixels(px) to inches (and vice versa) online, support uploading images to automatically detect PPI/DPI",
     "intro": {
-      "title": "Pixel to Inches - Convert pixels to inches online for free",
-      "content": "With this pixels to inches converter, easily convert pixels to inches online for screen or printer, no registration and download, completely free."
+      "title": "What is pixels to inches converter",
+      "content": "Our free pixel to inch converter is the ultimate tool for designers, developers, and digital professionals. Whether you're working on web design, print layouts, or mobile app development, this online calculator delivers instant and accurate conversions between pixels and inches. Simply input your pixel value, select the appropriate DPI or PPI settings, and get accurate inch measurements in no time."
     },
     "howTo": {
       "title": "How to convert pixels to inches",
@@ -277,6 +278,23 @@
           "answer": "Yes, there are no limits on the number of conversions you can perform. Our tool is completely free with unlimited usage."
         }
       }
+    },
+    "webApp": {
+      "name": "Pixels to Inches",
+      "category": "DesignApplication",
+      "operatingSystem": "Any",
+      "price": "0",
+      "currency": "USD",
+      "creator": "Pixels to Inches",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "features": [
+        "Real-time pixel to inch conversion",
+        "Bidirectional conversion (pixels to inches and inches to pixels)",
+        "Screen and print mode support",
+        "Image DPI analysis",
+        "Mobile responsive design",
+        "Free to use"
+      ]
     }
   }
 }

@@ -12,12 +12,15 @@ export default function Home() {
       title={t('seo.pageTitle')}
       description={t('seo.pageDescription')}
     >
-      {/* H1标题 - 只有标题，保持简洁 */}
+      {/* H1标题区域 */}
       <div className="text-center py-8 bg-white">
         <div className="container mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-neutral-900">
+          <h1 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
             {t('seo.h1')}
           </h1>
+          <p className="text-lg text-neutral-700 max-w-3xl mx-auto">
+            {t('seo.h1Description')}
+          </p>
         </div>
       </div>
 

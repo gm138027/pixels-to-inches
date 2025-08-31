@@ -10,7 +10,6 @@ import Footer from './Footer';
 declare global {
   interface Window {
     dataLayer: unknown[];
-    gtag: (...args: unknown[]) => void;
   }
 }
 
@@ -115,11 +114,13 @@ export default function Layout({
         strategy="afterInteractive"
         onLoad={() => {
           window.dataLayer = window.dataLayer || [];
-          window.gtag = function(...args: unknown[]) {
+          // 定义 gtag 函数，使其与类型声明兼容
+          (window as any).gtag = function(...args: unknown[]) {
             window.dataLayer.push(args);
           };
-          window.gtag('js', new Date());
-          window.gtag('config', 'G-P9Z09C23H1');
+          // 初始化 Google Analytics
+          (window as any).gtag('js', new Date());
+          (window as any).gtag('config', 'G-P9Z09C23H1');
         }}
       />
 

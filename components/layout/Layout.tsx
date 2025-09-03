@@ -6,12 +6,7 @@ import { useTranslations } from '../../lib/translations';
 import Header from './Header';
 import Footer from './Footer';
 
-// Google Analytics 类型声明
-declare global {
-  interface Window {
-    dataLayer: unknown[];
-  }
-}
+
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -80,6 +75,10 @@ export default function Layout({
         <link rel="preload" href="/logo/android-chrome-512x512.png" as="image" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+        {/* 预加载关键字体 - 改善LCP */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
         {/* Favicon配置 */}
         <link rel="icon" href="/logo/favicon.ico" />
@@ -150,7 +149,7 @@ export default function Layout({
           // 初始化 Google Analytics
           if (!window.gtag) {
             window.gtag = function(...args: unknown[]) {
-              window.dataLayer.push(args);
+              window.dataLayer?.push(args);
             };
           }
           window.gtag!('js', new Date());

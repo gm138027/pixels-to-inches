@@ -2,7 +2,7 @@
  * 自动生成的翻译类型定义
  * 请勿手动修改此文件
  * 
- * 生成时间: 2025-09-03T10:22:09.101Z
+ * 生成时间: 2025-09-03T13:21:14.574Z
  * 基于语言: en
  */
 
@@ -11,6 +11,9 @@
  */
 export type TranslationKey =
   | 'common.copySuccess'
+  | 'breadcrumb.home'
+  | 'breadcrumb.privacy'
+  | 'breadcrumb.terms'
   | 'modeSelector.forScreens'
   | 'modeSelector.forPrinters'
   | 'modeSelector.monitorAlt'
@@ -281,6 +284,7 @@ export type TranslationKey =
  */
 export type TranslationNamespace =
   | 'common'
+  | 'breadcrumb'
   | 'modeSelector'
   | 'converter'
   | 'imageUpload'
@@ -325,7 +329,7 @@ export interface UseTranslationsHook {
  * 翻译统计信息
  */
 export interface TranslationStats {
-  totalKeys: 265;
-  namespaces: 12;
-  generatedAt: '2025-09-03T10:22:09.102Z';
+  totalKeys: 268;
+  namespaces: 13;
+  generatedAt: '2025-09-03T13:21:14.576Z';
 }

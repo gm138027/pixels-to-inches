@@ -20,12 +20,12 @@ export const useAnalytics = () => {
         value: event.value
       });
     }
-    
-    // 也可以发送到自定义后端
-    // fetch('/api/analytics', { method: 'POST', body: JSON.stringify(event) });
-    
-    console.log('Analytics Event:', event);
+
+    // 开发环境记录日志
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Analytics Event:', event);
+    }
   }, []);
 
   return { trackEvent };
-}; 
+};

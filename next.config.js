@@ -36,7 +36,7 @@ const nextConfig = {
   webpack: (config, { dev, isServer }) => {
     // 生产环境优化
     if (!dev && !isServer) {
-      // 启用更激进的代码分割
+      // 保守的代码分割优化
       config.optimization.splitChunks = {
         chunks: 'all',
         cacheGroups: {
@@ -54,7 +54,7 @@ const nextConfig = {
         },
       };
     }
-    
+
     return config;
   },
   

@@ -125,6 +125,8 @@ export default function DimensionConverter({ onCopy, copied }: DimensionConverte
             onChange={(e) => handleWidthPxChange(e.target.value)}
             className="w-full px-3 py-2 border border-neutral-300 focus:ring-2 focus:ring-neutral-500 focus:border-transparent text-center"
             aria-label={t('enterWidthPixels')}
+            aria-required="false"
+            aria-invalid="false"
           />
         </div>
         <div>
@@ -137,6 +139,8 @@ export default function DimensionConverter({ onCopy, copied }: DimensionConverte
               onChange={(e) => handleHeightPxChange(e.target.value)}
               className="flex-1 px-3 py-2 border border-neutral-300 focus:ring-2 focus:ring-neutral-500 focus:border-transparent text-center"
               aria-label={t('enterHeightPixels')}
+              aria-required="false"
+              aria-invalid="false"
             />
             <button
               onClick={() => onCopy(`${widthPx}x${heightPx}`, 'dimensions-px')}

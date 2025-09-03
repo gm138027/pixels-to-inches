@@ -32,23 +32,25 @@ export default function Footer() {
           {/* 快速链接 */}
           <div className="space-y-4">
             <h3 className="font-semibold text-neutral-900">{t('quickLinks')}</h3>
-            <ul className="space-y-2 text-sm text-neutral-600">
+            <nav aria-label="Footer navigation">
+              <ul className="space-y-2 text-sm text-neutral-600">
               <li>
                 <Link href="/" className="hover:text-neutral-900 transition-colors">
                   {t('converterTool')}
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="hover:text-neutral-900 transition-colors">
+                <Link href="/privacy" className="hover:text-neutral-900 transition-colors" rel="noopener">
                   {t('privacyPolicy')}
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="hover:text-neutral-900 transition-colors">
+                <Link href="/terms" className="hover:text-neutral-900 transition-colors" rel="noopener">
                   {t('termsOfService')}
                 </Link>
               </li>
-            </ul>
+              </ul>
+            </nav>
           </div>
 
           {/* 技术信息 */}

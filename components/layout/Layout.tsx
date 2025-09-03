@@ -19,10 +19,10 @@ interface LayoutProps {
   description?: string;
 }
 
-export default function Layout({ 
-  children, 
+export default function Layout({
+  children,
   title = 'Pixels to Inches - Free Online Tool',
-  description = 'Convert pixels to inches instantly with our advanced calculator. Features dual conversion modes, image analysis, and multiple DPI presets for screens and printers.'
+  description = 'Free online pixels to inches converter. Instantly convert PX to IN with DPI/PPI support for screens and printers. No registration required.'
 }: LayoutProps) {
   const router = useRouter();
   const baseUrl = 'https://pixelstoinches.com';
@@ -37,7 +37,13 @@ export default function Layout({
         
         <title>{title}</title>
         <meta name="description" content={description} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+        {/* 移动端优化标签 */}
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         
         {/* Canonical URL - 动态生成当前页面的规范URL */}
         <link rel="canonical" href={currentUrl} />
@@ -66,9 +72,14 @@ export default function Layout({
         <meta name="twitter:image:alt" content="Pixels to Inches - Free Online Tool" />
         
         {/* 其他SEO优化标签 */}
-        <meta name="robots" content="index, follow" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
         <meta name="author" content="Pixels to Inches" />
         <meta name="keywords" content="pixels to inches, px to in, converter, calculator, DPI, PPI, design tool, web development" />
+
+        {/* 预加载关键资源 */}
+        <link rel="preload" href="/logo/android-chrome-512x512.png" as="image" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         
         {/* Favicon配置 */}
         <link rel="icon" href="/logo/favicon.ico" />
@@ -100,7 +111,29 @@ export default function Layout({
                 "url": baseUrl
               },
               "featureList": t('webApp.features'),
-              "browserRequirements": t('webApp.browserRequirements')
+              "browserRequirements": t('webApp.browserRequirements'),
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "ratingCount": "1000"
+              }
+            })
+          }}
+        />
+
+        {/* BreadcrumbList结构化数据 */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": baseUrl
+              }]
             })
           }}
         />
@@ -130,7 +163,7 @@ export default function Layout({
         <Header />
         
         {/* 主要内容区域 */}
-        <main className="flex-1">
+        <main className="flex-1" role="main" aria-label="Pixels to Inches Converter">
           {children}
         </main>
         

@@ -8,8 +8,8 @@ export default function SeoContent() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-16 space-y-8">
       {/* 介绍部分 */}
-      <section className="space-y-6">
-        <h2 className="text-3xl font-bold text-neutral-900 mb-4 leading-tight">
+      <section className="space-y-6" id="introduction" aria-labelledby="intro-heading">
+        <h2 id="intro-heading" className="text-3xl font-bold text-neutral-900 mb-4 leading-tight">
           {t('intro.title')}
         </h2>
         <p className="text-lg text-neutral-700 leading-relaxed">
@@ -167,8 +167,8 @@ export default function SeoContent() {
       </section>
 
       {/* 功能特点 */}
-      <section className="space-y-6">
-        <h2 className="text-3xl font-bold text-neutral-900 mb-4 leading-tight">
+      <section className="space-y-6" id="features" aria-labelledby="features-heading">
+        <h2 id="features-heading" className="text-3xl font-bold text-neutral-900 mb-4 leading-tight">
           {t('features.title')}
         </h2>
         <div className="grid md:grid-cols-2 gap-x-6 gap-y-3">
@@ -334,8 +334,8 @@ export default function SeoContent() {
       </section>
 
       {/* DPI和PPI解释 */}
-      <section className="space-y-6">
-        <h2 className="text-3xl font-bold text-neutral-900 mb-4 leading-tight">
+      <section className="space-y-6" id="dpi-ppi" aria-labelledby="dpi-ppi-heading">
+        <h2 id="dpi-ppi-heading" className="text-3xl font-bold text-neutral-900 mb-4 leading-tight">
           {t('dpiPpi.title')}
         </h2>
 

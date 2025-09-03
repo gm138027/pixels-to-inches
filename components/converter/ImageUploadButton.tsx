@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { useTranslations } from 'next-intl'; // 导入翻译函数
+import { useTranslations } from '../../lib/translations'; // 导入翻译函数
 
 interface ImageUploadButtonProps {
   onFileSelect: (file: File) => void;
@@ -7,7 +7,7 @@ interface ImageUploadButtonProps {
 
 export default function ImageUploadButton({ onFileSelect }: ImageUploadButtonProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const t = useTranslations(); // 获取翻译函数
+  const t = useTranslations('imageUpload'); // 获取图片上传翻译函数
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -33,7 +33,7 @@ export default function ImageUploadButton({ onFileSelect }: ImageUploadButtonPro
         onClick={triggerFileSelect}
         className="text-neutral-800 hover:text-neutral-900 underline"
       >
-        {t('imageUpload.uploadImage')}
+        {t('uploadImage')}
       </button>
     </>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
 import { useRouter } from 'next/router';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '../../lib/translations';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -29,7 +29,7 @@ export default function Layout({
   const currentUrl = `${baseUrl}${router.asPath}`;
   
   // 获取翻译函数
-  const t = useTranslations();
+  const t = useTranslations('seo');
 
   return (
     <>
@@ -84,23 +84,23 @@ export default function Layout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebApplication",
-              "name": t('seo.webApp.name'),
+              "name": t('webApp.name'),
               "url": baseUrl,
               "description": description,
-              "applicationCategory": t('seo.webApp.category'),
-              "operatingSystem": t('seo.webApp.operatingSystem'),
+              "applicationCategory": t('webApp.category'),
+              "operatingSystem": t('webApp.operatingSystem'),
               "offers": {
                 "@type": "Offer",
-                "price": t('seo.webApp.price'),
-                "priceCurrency": t('seo.webApp.currency')
+                "price": t('webApp.price'),
+                "priceCurrency": t('webApp.currency')
               },
               "creator": {
                 "@type": "Organization",
-                "name": t('seo.webApp.creator'),
+                "name": t('webApp.creator'),
                 "url": baseUrl
               },
-              "featureList": t('seo.webApp.features'),
-              "browserRequirements": t('seo.webApp.browserRequirements')
+              "featureList": t('webApp.features'),
+              "browserRequirements": t('webApp.browserRequirements')
             })
           }}
         />

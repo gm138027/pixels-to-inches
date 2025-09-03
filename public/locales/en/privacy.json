@@ -1,0 +1,99 @@
+{
+  "pageTitle": "Privacy Policy",
+  "pageDescription": "Learn how we collect, use, and protect your personal information on Pixels to Inches.",
+  "introduction": {
+    "title": "Introduction",
+    "content": "This Privacy Policy describes how Pixels to Inches (\"we,\" \"our,\" or \"us\") collects, uses, and protects your personal information when you use our website and services. We are committed to protecting your privacy and ensuring the security of your personal information."
+  },
+  "informationCollection": {
+    "title": "Information We Collect",
+    "content": "We collect information to provide better services to all of our users. The types of information we collect include:",
+    "personal": {
+      "title": "Personal Information",
+      "content": "When you use our pixel to inches conversion tool, no personal information is required or stored. All calculations are performed locally in your browser."
+    },
+    "usage": {
+      "title": "Usage Information",
+      "content": "We use Google Analytics and similar services to understand website usage. These services may automatically collect information such as your IP address, browser type, operating system, referring URLs, device information, and pages visited."
+    }
+  },
+  "useOfInformation": {
+    "title": "How Information Is Used",
+    "content": "The information collected through third-party analytics services is used for the following purposes:",
+    "purposes": [
+      "To provide and maintain our conversion service",
+      "To understand how visitors use our website and identify areas for improvement",
+      "To monitor website performance and Core Web Vitals metrics",
+      "To analyze user behavior patterns and optimize user experience"
+    ]
+  },
+  "informationSharing": {
+    "title": "Information Sharing",
+    "content": "We do not sell, trade, or otherwise transfer your personal information to third parties. However, we may share information in the following circumstances:",
+    "thirdParty": {
+      "title": "Third-Party Services",
+      "content": "We use third-party analytics services that may collect and process certain information. These services have their own privacy policies and are obligated to protect your information."
+    }
+  },
+  "dataSecurity": {
+    "title": "Data Security",
+    "content": "We implement appropriate technical and organizational security measures to protect against unauthorized or unlawful processing of your personal data and against accidental loss, destruction, or damage. However, please note that no method of transmission over the Internet or method of electronic storage is 100% secure.",
+    "measures": [
+      "Encryption of data in transit and at rest",
+      "Regular security assessments and updates",
+      "Limited access to personal information on a need-to-know basis"
+    ]
+  },
+  "cookies": {
+    "title": "Cookies and Tracking Technologies",
+    "content": "We use cookies and similar tracking technologies for the following purposes:",
+    "types": {
+      "essential": {
+        "title": "Essential Cookies",
+        "content": "These cookies are necessary for the website to function and cannot be switched off in our systems."
+      },
+      "analytics": {
+        "title": "Analytics Cookies",
+        "content": "These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site."
+      }
+    },
+    "management": "You can control and/or delete cookies as you wish. You can delete all cookies that are already on your computer and you can set most browsers to prevent them from being placed."
+  },
+  "userRights": {
+    "title": "Your Rights",
+    "content": "You have certain rights regarding your personal information:",
+    "rights": [
+      "The right to access your personal information",
+      "The right to rectify inaccurate personal information",
+      "The right to erase your personal information",
+      "The right to restrict processing of your personal information",
+      "The right to data portability",
+      "The right to object to processing"
+    ]
+  },
+  "dataRetention": {
+    "title": "Data Retention",
+    "content": "We retain personal information only for as long as necessary to fulfill the purposes for which it was collected and processed, in accordance with our retention policies and applicable law."
+  },
+  "internationalTransfers": {
+    "title": "International Data Transfers",
+    "content": "Your information may be transferred to and processed in countries other than your own. We ensure that such transfers are subject to appropriate safeguards."
+  },
+  "childrenPrivacy": {
+    "title": "Children's Privacy",
+    "content": "Our service is not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us."
+  },
+  "policyChanges": {
+    "title": "Changes to This Privacy Policy",
+    "content": "We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the \"Last updated\" date."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "content": "If you have any questions about this Privacy Policy, please contact us:",
+    "methods": [
+      "By email: privacy@pixelstoinches.com",
+      "By visiting our contact page on our website"
+    ]
+  },
+  "lastUpdated": "Last updated:"
+}

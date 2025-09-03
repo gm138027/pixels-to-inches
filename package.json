@@ -4,19 +4,24 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run validate:i18n && next build",
+    "build:skip-validation": "next build",
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "validate:i18n": "node scripts/validate-translations.js",
+    "validate:i18n:watch": "nodemon --watch public/locales --watch pages --watch components --watch lib --ext ts,tsx,json --exec \"npm run validate:i18n\"",
+    "generate:types": "node scripts/generate-translation-types.js",
+    "prebuild": "npm run generate:types"
   },
   "dependencies": {
     "exif-js": "^2.3.0",
     "next": "15.1.0",
-    "next-intl": "^3.9.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-error-boundary": "^6.0.0",
     "web-vitals": "^5.1.0"
   },
   "devDependencies": {
@@ -31,6 +36,7 @@
     "autoprefixer": "^10.4.17",
     "eslint": "^8.56.0",
     "eslint-config-next": "15.1.0",
+    "glob": "^11.0.3",
     "jest": "^30.1.1",
     "jest-environment-jsdom": "^30.1.1",
     "postcss": "^8.4.33",

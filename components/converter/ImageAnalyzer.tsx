@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import ImagePreview from './ImagePreview';
 import ImageInfo from './ImageInfo';
 import { extractImageInfo, createImagePreviewUrl, revokeImagePreviewUrl, ImageInfo as ImageInfoType } from '../../lib/imageAnalysis';
-import { useTranslations } from 'next-intl'; // 导入翻译函数
+import { useTranslations } from '../../lib/translations'; // 导入翻译函数
 
 interface ImageAnalyzerProps {
   selectedFile: File | null;
@@ -13,7 +13,7 @@ export default function ImageAnalyzer({ selectedFile }: ImageAnalyzerProps) {
   const [imageUrl, setImageUrl] = useState<string>('');
   const [error, setError] = useState<string>('');
   const [isExpanded, setIsExpanded] = useState(true);
-  const t = useTranslations(); // 获取翻译函数
+  const t = useTranslations('imageAnalyzer'); // 获取图片分析器翻译函数
   const imageUrlRef = useRef<string>(''); // 用于清理资源
 
   // 处理文件选择
@@ -46,7 +46,7 @@ export default function ImageAnalyzer({ selectedFile }: ImageAnalyzerProps) {
         const info = await extractImageInfo(selectedFile);
         setImageInfo(info);
       } catch (err) {
-        const errorMessage = err instanceof Error ? err.message : t('imageAnalyzer.processingFailed');
+        const errorMessage = err instanceof Error ? err.message : t('analysisError');
         setError(errorMessage);
         // 清理预览URL - 使用当前状态而不是依赖
         setImageUrl(currentUrl => {
@@ -61,7 +61,7 @@ export default function ImageAnalyzer({ selectedFile }: ImageAnalyzerProps) {
     };
 
     processFile();
-  }, [selectedFile, t]); // 只依赖selectedFile和t
+  }, [selectedFile]); // 只依赖selectedFile
 
   // 清理资源
   useEffect(() => {
@@ -108,7 +108,7 @@ export default function ImageAnalyzer({ selectedFile }: ImageAnalyzerProps) {
       <button
         onClick={() => setIsExpanded(false)}
         className="absolute left-1/2 transform -translate-x-1/2 -bottom-3 bg-neutral-50 border border-neutral-300 rounded-full p-2 hover:bg-neutral-100 transition-colors z-10"
-        aria-label={t('imageAnalyzer.collapsePanel')}
+        aria-label="Collapse panel"
       >
         <svg 
           width="20" 

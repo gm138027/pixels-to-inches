@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '../../lib/translations';
 import Head from 'next/head';
 
 /**
@@ -8,7 +8,7 @@ import Head from 'next/head';
  * 同时生成JSON-LD结构化数据
  */
 export default function FaqSection() {
-  const t = useTranslations(); // 获取翻译函数
+  const t = useTranslations('seo'); // 获取翻译函数
 
   // 生成FAQ结构化数据
   const faqStructuredData = {
@@ -17,74 +17,74 @@ export default function FaqSection() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": t('seo.faq.questions.0.question'),
+        "name": t('faq.questions.0.question'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": t('seo.faq.questions.0.answer')
+          "text": t('faq.questions.0.answer')
         }
       },
       {
         "@type": "Question",
-        "name": t('seo.faq.questions.1.question'),
+        "name": t('faq.questions.1.question'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": t('seo.faq.questions.1.answer')
+          "text": t('faq.questions.1.answer')
         }
       },
       {
         "@type": "Question",
-        "name": t('seo.faq.questions.2.question'),
+        "name": t('faq.questions.2.question'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": t('seo.faq.questions.2.answer')
+          "text": t('faq.questions.2.answer')
         }
       },
       {
         "@type": "Question",
-        "name": t('seo.faq.questions.3.question'),
+        "name": t('faq.questions.3.question'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": t('seo.faq.questions.3.answer')
+          "text": t('faq.questions.3.answer')
         }
       },
       {
         "@type": "Question",
-        "name": t('seo.faq.questions.4.question'),
+        "name": t('faq.questions.4.question'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": t('seo.faq.questions.4.answer')
+          "text": t('faq.questions.4.answer')
         }
       },
       {
         "@type": "Question",
-        "name": t('seo.faq.questions.5.question'),
+        "name": t('faq.questions.5.question'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": t('seo.faq.questions.5.answer')
+          "text": t('faq.questions.5.answer')
         }
       },
       {
         "@type": "Question",
-        "name": t('seo.faq.questions.6.question'),
+        "name": t('faq.questions.6.question'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": t('seo.faq.questions.6.answer')
+          "text": t('faq.questions.6.answer')
         }
       },
       {
         "@type": "Question",
-        "name": t('seo.faq.questions.7.question'),
+        "name": t('faq.questions.7.question'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": t('seo.faq.questions.7.answer')
+          "text": t('faq.questions.7.answer')
         }
       },
       {
         "@type": "Question",
-        "name": t('seo.faq.questions.8.question'),
+        "name": t('faq.questions.8.question'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": t('seo.faq.questions.8.answer')
+          "text": t('faq.questions.8.answer')
         }
       }
     ]
@@ -105,17 +105,17 @@ export default function FaqSection() {
       {/* FAQ部分 - 静态结构，SEO友好 */}
       <section className="space-y-6">
         <h2 className="text-3xl font-bold text-neutral-900 mb-4">
-          {t('seo.faq.title')}
+          {t('faq.title')}
         </h2>
         <div className="space-y-6">
           {/* 问题1: What is a pixel? */}
           <div className="bg-white border border-neutral-200 rounded-lg p-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
             <h3 className="text-xl font-semibold text-neutral-900 mb-3">
-              <span itemProp="name">{t('seo.faq.questions.0.question')}</span>
+              <span itemProp="name">{t('faq.questions.0.question')}</span>
             </h3>
             <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
               <p className="text-neutral-700 leading-relaxed" itemProp="text">
-                {t('seo.faq.questions.0.answer')}
+                {t('faq.questions.0.answer')}
               </p>
             </div>
           </div>
@@ -123,11 +123,11 @@ export default function FaqSection() {
           {/* 问题2: How to convert pixels to inches? */}
           <div className="bg-white border border-neutral-200 rounded-lg p-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
             <h3 className="text-xl font-semibold text-neutral-900 mb-3">
-              <span itemProp="name">{t('seo.faq.questions.1.question')}</span>
+              <span itemProp="name">{t('faq.questions.1.question')}</span>
             </h3>
             <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
               <p className="text-neutral-700 leading-relaxed" itemProp="text">
-                {t('seo.faq.questions.1.answer')}
+                {t('faq.questions.1.answer')}
               </p>
             </div>
           </div>
@@ -135,11 +135,11 @@ export default function FaqSection() {
           {/* 问题3: How many pixels is 1 inch? */}
           <div className="bg-white border border-neutral-200 rounded-lg p-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
             <h3 className="text-xl font-semibold text-neutral-900 mb-3">
-              <span itemProp="name">{t('seo.faq.questions.2.question')}</span>
+              <span itemProp="name">{t('faq.questions.2.question')}</span>
             </h3>
             <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
               <p className="text-neutral-700 leading-relaxed" itemProp="text">
-                {t('seo.faq.questions.2.answer')}
+                {t('faq.questions.2.answer')}
               </p>
             </div>
           </div>
@@ -147,11 +147,11 @@ export default function FaqSection() {
           {/* 问题4: How many inches are in a pixel? */}
           <div className="bg-white border border-neutral-200 rounded-lg p-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
             <h3 className="text-xl font-semibold text-neutral-900 mb-3">
-              <span itemProp="name">{t('seo.faq.questions.3.question')}</span>
+              <span itemProp="name">{t('faq.questions.3.question')}</span>
             </h3>
             <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
               <p className="text-neutral-700 leading-relaxed" itemProp="text">
-                {t('seo.faq.questions.3.answer')}
+                {t('faq.questions.3.answer')}
               </p>
             </div>
           </div>
@@ -159,11 +159,11 @@ export default function FaqSection() {
           {/* 问题5: Is 300 pixels an inch? */}
           <div className="bg-white border border-neutral-200 rounded-lg p-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
             <h3 className="text-xl font-semibold text-neutral-900 mb-3">
-              <span itemProp="name">{t('seo.faq.questions.4.question')}</span>
+              <span itemProp="name">{t('faq.questions.4.question')}</span>
             </h3>
             <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
               <p className="text-neutral-700 leading-relaxed" itemProp="text">
-                {t('seo.faq.questions.4.answer')}
+                {t('faq.questions.4.answer')}
               </p>
             </div>
           </div>
@@ -171,11 +171,11 @@ export default function FaqSection() {
           {/* 问题6: Can I convert pixels to inches on my phone? */}
           <div className="bg-white border border-neutral-200 rounded-lg p-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
             <h3 className="text-xl font-semibold text-neutral-900 mb-3">
-              <span itemProp="name">{t('seo.faq.questions.5.question')}</span>
+              <span itemProp="name">{t('faq.questions.5.question')}</span>
             </h3>
             <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
               <p className="text-neutral-700 leading-relaxed" itemProp="text">
-                {t('seo.faq.questions.5.answer')}
+                {t('faq.questions.5.answer')}
               </p>
             </div>
           </div>
@@ -183,11 +183,11 @@ export default function FaqSection() {
           {/* 问题7: What image formats can Pixels to Inches Converter use? */}
           <div className="bg-white border border-neutral-200 rounded-lg p-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
             <h3 className="text-xl font-semibold text-neutral-900 mb-3">
-              <span itemProp="name">{t('seo.faq.questions.6.question')}</span>
+              <span itemProp="name">{t('faq.questions.6.question')}</span>
             </h3>
             <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
               <p className="text-neutral-700 leading-relaxed" itemProp="text">
-                {t('seo.faq.questions.6.answer')}
+                {t('faq.questions.6.answer')}
               </p>
             </div>
           </div>
@@ -195,11 +195,11 @@ export default function FaqSection() {
           {/* 问题8: Do you store the images I upload? */}
           <div className="bg-white border border-neutral-200 rounded-lg p-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
             <h3 className="text-xl font-semibold text-neutral-900 mb-3">
-              <span itemProp="name">{t('seo.faq.questions.7.question')}</span>
+              <span itemProp="name">{t('faq.questions.7.question')}</span>
             </h3>
             <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
               <p className="text-neutral-700 leading-relaxed" itemProp="text">
-                {t('seo.faq.questions.7.answer')}
+                {t('faq.questions.7.answer')}
               </p>
             </div>
           </div>
@@ -207,11 +207,11 @@ export default function FaqSection() {
           {/* 问题9: Can I convert pixels to inches infinitely? */}
           <div className="bg-white border border-neutral-200 rounded-lg p-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
             <h3 className="text-xl font-semibold text-neutral-900 mb-3">
-              <span itemProp="name">{t('seo.faq.questions.8.question')}</span>
+              <span itemProp="name">{t('faq.questions.8.question')}</span>
             </h3>
             <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
               <p className="text-neutral-700 leading-relaxed" itemProp="text">
-                {t('seo.faq.questions.8.answer')}
+                {t('faq.questions.8.answer')}
               </p>
             </div>
           </div>

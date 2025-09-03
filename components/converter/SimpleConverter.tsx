@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { convertPixelsToInches, convertInchesToPixels } from '../../lib/conversion';
-import { useTranslations } from 'next-intl'; // 导入翻译函数
+import { useTranslations } from '../../lib/translations'; // 导入翻译函数
 import { useAnalyticsContext } from '../analytics/AnalyticsProvider'; // 导入追踪上下文
 
 interface SimpleConverterProps {
@@ -13,7 +13,8 @@ export default function SimpleConverter({ onCopy, copied }: SimpleConverterProps
   const [inches, setInches] = useState<string>('');
   const [ppi, setPpi] = useState<number>(96); // 独立的PPI状态
   const [activeInput, setActiveInput] = useState<'pixels' | 'inches' | null>(null); // 跟踪当前活跃的输入框
-  const t = useTranslations(); // 获取翻译函数
+  const t = useTranslations('converter'); // 获取转换器翻译函数
+  const tCommon = useTranslations('common'); // 获取通用翻译函数
   const { trackEvent } = useAnalyticsContext(); // 获取追踪函数
 
   // 追踪用户输入
@@ -82,7 +83,7 @@ export default function SimpleConverter({ onCopy, copied }: SimpleConverterProps
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Pixels 输入 */}
         <div>
-          <label className="block text-lg font-medium text-neutral-900 mb-3 text-center" htmlFor="pixels-input">{t('converter.pixels')}</label>
+          <label className="block text-lg font-medium text-neutral-900 mb-3 text-center" htmlFor="pixels-input">{t('pixels')}</label>
           <div className="flex">
             <input
               id="pixels-input"
@@ -91,22 +92,22 @@ export default function SimpleConverter({ onCopy, copied }: SimpleConverterProps
               onChange={(e) => handlePixelsChange(e.target.value)}
               className="flex-1 px-3 py-2 border border-neutral-300 focus:ring-2 focus:ring-neutral-500 focus:border-transparent text-center"
               placeholder=""
-              aria-label={t('converter.enterPixelValue')}
+              aria-label={t('enterPixelValue')}
             />
             <button
               onClick={() => onCopy(pixels, 'pixels')}
               className="px-4 py-2 bg-neutral-500 text-white hover:bg-neutral-600 transition-colors"
               disabled={!pixels}
-              aria-label={t('converter.copyPixelValue')}
+              aria-label={t('copyPixelValue')}
             >
-              {copied === 'pixels' ? t('common.copySuccess') : t('converter.copy')}
+              {copied === 'pixels' ? tCommon('copySuccess') : t('copy')}
             </button>
           </div>
         </div>
 
         {/* Inches 输入 */}
         <div>
-          <label className="block text-lg font-medium text-neutral-900 mb-3 text-center" htmlFor="inches-input">{t('converter.inches')}</label>
+          <label className="block text-lg font-medium text-neutral-900 mb-3 text-center" htmlFor="inches-input">{t('inches')}</label>
           <div className="flex">
             <input
               id="inches-input"
@@ -116,15 +117,15 @@ export default function SimpleConverter({ onCopy, copied }: SimpleConverterProps
               step="0.0001"
               className="flex-1 px-3 py-2 border border-neutral-300 focus:ring-2 focus:ring-neutral-500 focus:border-transparent text-center"
               placeholder=""
-              aria-label={t('converter.enterInchValue')}
+              aria-label={t('enterInchValue')}
             />
             <button
               onClick={() => onCopy(inches, 'inches')}
               className="px-4 py-2 bg-neutral-500 text-white hover:bg-neutral-600 transition-colors"
               disabled={!inches}
-              aria-label={t('converter.copyInchValue')}
+              aria-label={t('copyInchValue')}
             >
-              {copied === 'inches' ? t('common.copySuccess') : t('converter.copy')}
+              {copied === 'inches' ? tCommon('copySuccess') : t('copy')}
             </button>
           </div>
         </div>
@@ -133,7 +134,7 @@ export default function SimpleConverter({ onCopy, copied }: SimpleConverterProps
       {/* PPI 控制 */}
       <div className="flex justify-center">
         <div className="w-full max-w-md">
-          <label className="block text-lg font-medium text-neutral-900 mb-3 text-center" htmlFor="ppi-input">{t('converter.ppi')}</label>
+          <label className="block text-lg font-medium text-neutral-900 mb-3 text-center" htmlFor="ppi-input">{t('ppi')}</label>
           <div className="relative">
             <input
               id="ppi-input"
@@ -143,20 +144,20 @@ export default function SimpleConverter({ onCopy, copied }: SimpleConverterProps
               className="w-full pl-10 pr-8 py-2 border border-neutral-300 focus:ring-2 focus:ring-neutral-500 focus:border-transparent text-center text-lg [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [-moz-appearance:textfield]"
               min="1"
               max="2400"
-              aria-label={t('converter.setPpiValue')}
+              aria-label={t('setPpiValue')}
             />
             <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex flex-col">
               <button
                 onClick={() => handlePpiChange(Math.min(ppi + 1, 2400))}
                 className="text-neutral-400 hover:text-neutral-600 text-xs leading-none"
-                aria-label={t('converter.increasePpi')}
+                aria-label={t('increasePpi')}
               >
                 ▲
               </button>
               <button
                 onClick={() => handlePpiChange(Math.max(ppi - 1, 1))}
                 className="text-neutral-400 hover:text-neutral-600 text-xs leading-none"
-                aria-label={t('converter.decreasePpi')}
+                aria-label={t('decreasePpi')}
               >
                 ▼
               </button>

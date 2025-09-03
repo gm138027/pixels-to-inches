@@ -1,11 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image'; // 导入Next.js优化的Image组件
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '../../lib/translations';
 import LanguageSelector from './LanguageSelector';
 
 export default function Header() {
-  const t = useTranslations();
+  const t = useTranslations('header');
 
   return (
     <header className="bg-white border-b border-neutral-200 sticky top-0 z-50">
@@ -15,11 +15,11 @@ export default function Header() {
           <Link 
             href="/" 
             className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
-            aria-label={t('header.homeAriaLabel')}
+            aria-label={t('homeAriaLabel')}
           >
-            <Image 
-              src="/logo/favicon-32x32.png" 
-              alt={t('header.logoAlt')} 
+            <Image
+              src="/logo/favicon-32x32.png"
+              alt={t('logoAlt')}
               width={32}
               height={32}
               className="w-8 h-8"

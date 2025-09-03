@@ -1,31 +1,21 @@
 {
-  "title": "Terms of Service",
-  "description": "Read our terms of service to understand your rights and responsibilities when using Pixels to Inches.",
+  "pageTitle": "Terms of Service",
+  "pageDescription": "Read our terms of service to understand your rights and responsibilities when using Pixels to Inches.",
+  "introduction": {
+    "title": "Introduction",
+    "content": "Welcome to Pixels to Inches. These Terms of Service govern your use of our website and services. By accessing or using our service, you agree to be bound by these terms."
+  },
   "acceptance": {
     "title": "Acceptance of Terms",
     "content": "By accessing or using the Pixels to Inches website and services, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site."
   },
-  "serviceDescription": {
-    "title": "Description of Service",
+  "useOfService": {
+    "title": "Use of Service",
     "content": "Pixels to Inches provides a free online tool for converting pixels to inches and vice versa. The service is provided \"as is\" and is available for personal and commercial use without warranty of any kind."
-  },
-  "userResponsibilities": {
-    "title": "User Responsibilities",
-    "content": "When using our service, you agree not to:",
-    "items": [
-      "Use the service for any unlawful purpose",
-      "Attempt to interfere with or disrupt the service",
-      "Use the service to distribute malicious software or harmful content",
-      "Reverse engineer or attempt to extract the source code of the service"
-    ]
   },
   "intellectualProperty": {
     "title": "Intellectual Property",
     "content": "The service and its original content, features, and functionality are and will remain the exclusive property of Pixels to Inches and its licensors. The service is protected by copyright, trademark, and other laws of both the United States and foreign countries."
-  },
-  "privacy": {
-    "title": "Privacy",
-    "content": "Your use of the service is also governed by our Privacy Policy, which explains how we collect, use, and protect your personal information. By using the service, you consent to the collection and use of information in accordance with our Privacy Policy."
   },
   "disclaimer": {
     "title": "Disclaimer",

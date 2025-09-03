@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { convertPixelsToInches, convertInchesToPixels } from '../../lib/conversion';
-import { useTranslations } from 'next-intl'; // 导入翻译函数
+import { useTranslations } from '../../lib/translations'; // 导入翻译函数
 import { useAnalyticsContext } from '../analytics/AnalyticsProvider'; // 导入追踪上下文
 
 interface DimensionConverterProps {
@@ -15,7 +15,7 @@ export default function DimensionConverter({ onCopy, copied }: DimensionConverte
   const [heightIn, setHeightIn] = useState<string>('');
   const [dpi, setDpi] = useState<number>(300); // 独立的DPI状态
   const [activeInput, setActiveInput] = useState<'pixels' | 'inches' | null>(null); // 跟踪当前活跃的输入类型
-  const t = useTranslations(); // 获取翻译函数
+  const t = useTranslations('converter'); // 获取转换器翻译函数
   const { trackEvent } = useAnalyticsContext(); // 获取追踪函数
 
   // 追踪用户输入
@@ -117,18 +117,18 @@ export default function DimensionConverter({ onCopy, copied }: DimensionConverte
       {/* 像素尺寸行 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
         <div>
-          <label className="block text-lg font-medium text-neutral-900 mb-3 text-center" htmlFor="width-px-input">{t('converter.widthPx')}</label>
+          <label className="block text-lg font-medium text-neutral-900 mb-3 text-center" htmlFor="width-px-input">{t('widthPx')}</label>
           <input
             id="width-px-input"
             type="number"
             value={widthPx}
             onChange={(e) => handleWidthPxChange(e.target.value)}
             className="w-full px-3 py-2 border border-neutral-300 focus:ring-2 focus:ring-neutral-500 focus:border-transparent text-center"
-            aria-label={t('converter.enterWidthPixels')}
+            aria-label={t('enterWidthPixels')}
           />
         </div>
         <div>
-          <label className="block text-lg font-medium text-neutral-900 mb-3 text-center" htmlFor="height-px-input">{t('converter.heightPx')}</label>
+          <label className="block text-lg font-medium text-neutral-900 mb-3 text-center" htmlFor="height-px-input">{t('heightPx')}</label>
           <div className="flex items-center space-x-2">
             <input
               id="height-px-input"
@@ -136,15 +136,15 @@ export default function DimensionConverter({ onCopy, copied }: DimensionConverte
               value={heightPx}
               onChange={(e) => handleHeightPxChange(e.target.value)}
               className="flex-1 px-3 py-2 border border-neutral-300 focus:ring-2 focus:ring-neutral-500 focus:border-transparent text-center"
-              aria-label={t('converter.enterHeightPixels')}
+              aria-label={t('enterHeightPixels')}
             />
             <button
               onClick={() => onCopy(`${widthPx}x${heightPx}`, 'dimensions-px')}
               className="px-4 py-2 bg-neutral-500 text-white hover:bg-neutral-600 transition-colors"
               disabled={!widthPx || !heightPx}
-              aria-label={t('converter.copyPixelDimensions')}
+              aria-label={t('copyPixelDimensions')}
             >
-              {copied === 'dimensions-px' ? t('common.copySuccess') : t('converter.copy')}
+              {copied === 'dimensions-px' ? '✓' : t('copy')}
             </button>
           </div>
         </div>
@@ -157,7 +157,7 @@ export default function DimensionConverter({ onCopy, copied }: DimensionConverte
       {/* 英寸尺寸行 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
         <div>
-          <label className="block text-lg font-medium text-neutral-900 mb-3 text-center" htmlFor="width-in-input">{t('converter.widthIn')}</label>
+          <label className="block text-lg font-medium text-neutral-900 mb-3 text-center" htmlFor="width-in-input">{t('widthIn')}</label>
           <input
             id="width-in-input"
             type="number"
@@ -165,11 +165,11 @@ export default function DimensionConverter({ onCopy, copied }: DimensionConverte
             onChange={(e) => handleWidthInChange(e.target.value)}
             step="0.0001"
             className="w-full px-3 py-2 border border-neutral-300 focus:ring-2 focus:ring-neutral-500 focus:border-transparent text-center"
-            aria-label={t('converter.enterWidthInches')}
+            aria-label={t('enterWidthInches')}
           />
         </div>
         <div>
-          <label className="block text-lg font-medium text-neutral-900 mb-3 text-center" htmlFor="height-in-input">{t('converter.heightIn')}</label>
+          <label className="block text-lg font-medium text-neutral-900 mb-3 text-center" htmlFor="height-in-input">{t('heightIn')}</label>
           <div className="flex items-center space-x-2">
             <input
               id="height-in-input"
@@ -178,15 +178,15 @@ export default function DimensionConverter({ onCopy, copied }: DimensionConverte
               onChange={(e) => handleHeightInChange(e.target.value)}
               step="0.0001"
               className="flex-1 px-3 py-2 border border-neutral-300 focus:ring-2 focus:ring-neutral-500 focus:border-transparent text-center"
-              aria-label={t('converter.enterHeightInches')}
+              aria-label={t('enterHeightInches')}
             />
             <button
               onClick={() => onCopy(`${widthIn}x${heightIn}`, 'dimensions-in')}
               className="px-4 py-2 bg-neutral-500 text-white hover:bg-neutral-600 transition-colors"
               disabled={!widthIn || !heightIn}
-              aria-label={t('converter.copyInchDimensions')}
+              aria-label={t('copyInchDimensions')}
             >
-              {copied === 'dimensions-in' ? t('common.copySuccess') : t('converter.copy')}
+              {copied === 'dimensions-in' ? '✓' : t('copy')}
             </button>
           </div>
         </div>
@@ -199,7 +199,7 @@ export default function DimensionConverter({ onCopy, copied }: DimensionConverte
       {/* DPI 控制 */}
       <div className="flex justify-center">
         <div className="w-full max-w-md">
-          <label className="block text-lg font-medium text-neutral-900 mb-3 text-center" htmlFor="dpi-input">{t('converter.dpi')}</label>
+          <label className="block text-lg font-medium text-neutral-900 mb-3 text-center" htmlFor="dpi-input">{t('dpi')}</label>
           <div className="relative">
             <input
               id="dpi-input"
@@ -209,20 +209,20 @@ export default function DimensionConverter({ onCopy, copied }: DimensionConverte
               className="w-full pl-10 pr-8 py-2 border border-neutral-300 focus:ring-2 focus:ring-neutral-500 focus:border-transparent text-center text-lg [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [-moz-appearance:textfield]"
               min="1"
               max="2400"
-              aria-label={t('converter.setDpiValue')}
+              aria-label={t('setDpiValue')}
             />
             <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex flex-col">
               <button
                 onClick={() => handleDpiChange(Math.min(dpi + 1, 2400))}
                 className="text-neutral-400 hover:text-neutral-600 text-xs leading-none"
-                aria-label={t('converter.increaseDpi')}
+                aria-label={t('increaseDpi')}
               >
                 ▲
               </button>
               <button
                 onClick={() => handleDpiChange(Math.max(dpi - 1, 1))}
                 className="text-neutral-400 hover:text-neutral-600 text-xs leading-none"
-                aria-label={t('converter.decreaseDpi')}
+                aria-label={t('decreaseDpi')}
               >
                 ▼
               </button>

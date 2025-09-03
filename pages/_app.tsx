@@ -1,8 +1,9 @@
 import type { AppProps } from 'next/app'
 import '../styles/globals.css'
 import { onCLS, onINP, onFCP, onLCP, onTTFB } from 'web-vitals'
-import { NextIntlClientProvider } from 'next-intl'
 import { AnalyticsProvider } from '../components/analytics/AnalyticsProvider'
+import { ErrorBoundary } from 'react-error-boundary'
+import { TranslationContext } from '../lib/translations'
 
 // Web Vitals性能监控函数
 function sendToAnalytics(metric: {
@@ -26,6 +27,49 @@ function sendToAnalytics(metric: {
   // analytics.track('Web Vitals', metric);
 }
 
+// 错误回退组件
+function ErrorFallback({ error, resetErrorBoundary }: { error: Error; resetErrorBoundary: () => void }) {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-neutral-50">
+      <div className="max-w-md w-full mx-4">
+        <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+          <div className="text-red-500 text-6xl mb-4">⚠️</div>
+          <h1 className="text-2xl font-bold text-neutral-900 mb-2">
+            Something went wrong
+          </h1>
+          <p className="text-neutral-600 mb-4">
+            We&apos;re sorry, but something unexpected happened. Please try refreshing the page.
+          </p>
+          <div className="space-y-2">
+            <button
+              onClick={resetErrorBoundary}
+              className="w-full px-4 py-2 bg-neutral-900 text-white rounded hover:bg-neutral-800 transition-colors"
+            >
+              Try again
+            </button>
+            <button
+              onClick={() => window.location.reload()}
+              className="w-full px-4 py-2 bg-neutral-100 text-neutral-900 rounded hover:bg-neutral-200 transition-colors"
+            >
+              Refresh page
+            </button>
+          </div>
+          {process.env.NODE_ENV === 'development' && (
+            <details className="mt-4 text-left">
+              <summary className="cursor-pointer text-sm text-neutral-500">
+                Error details (development only)
+              </summary>
+              <pre className="mt-2 text-xs text-red-600 bg-red-50 p-2 rounded overflow-auto">
+                {error.message}
+              </pre>
+            </details>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function App({ Component, pageProps }: AppProps) {
   // 只在客户端初始化性能监控
   if (typeof window !== 'undefined') {
@@ -37,15 +81,33 @@ export default function App({ Component, pageProps }: AppProps) {
     onTTFB(sendToAnalytics); // 首字节时间（Time to First Byte）
   }
 
-  // 使用服务端渲染的翻译，通过pageProps传递messages
+  // 使用简化的翻译系统
   return (
-    <AnalyticsProvider>
-      <NextIntlClientProvider 
-        locale={pageProps.locale || 'en'}
-        messages={pageProps.messages || {}}
-      >
-        <Component {...pageProps} />
-      </NextIntlClientProvider>
-    </AnalyticsProvider>
+    <ErrorBoundary
+      FallbackComponent={ErrorFallback}
+      onError={(error, errorInfo) => {
+        // 在生产环境中，可以将错误发送到监控服务
+        console.error('Application error:', error, errorInfo);
+
+        // 可以在这里添加错误追踪服务
+        // 例如：Sentry, LogRocket, 等
+        // errorTrackingService.captureException(error, { extra: errorInfo });
+      }}
+      onReset={() => {
+        // 重置应用状态的逻辑
+        window.location.reload();
+      }}
+    >
+      <AnalyticsProvider>
+        <TranslationContext.Provider
+          value={{
+            messages: pageProps.messages || {},
+            locale: pageProps.locale || 'en'
+          }}
+        >
+          <Component {...pageProps} />
+        </TranslationContext.Provider>
+      </AnalyticsProvider>
+    </ErrorBoundary>
   );
 }

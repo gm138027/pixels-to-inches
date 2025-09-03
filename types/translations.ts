@@ -2,7 +2,7 @@
  * 自动生成的翻译类型定义
  * 请勿手动修改此文件
  * 
- * 生成时间: 2025-09-03T13:21:14.574Z
+ * 生成时间: 2025-09-03T13:26:44.594Z
  * 基于语言: en
  */
 
@@ -331,5 +331,5 @@ export interface UseTranslationsHook {
 export interface TranslationStats {
   totalKeys: 268;
   namespaces: 13;
-  generatedAt: '2025-09-03T13:21:14.576Z';
+  generatedAt: '2025-09-03T13:26:44.594Z';
 }

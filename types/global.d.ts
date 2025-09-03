@@ -3,6 +3,10 @@ declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
     dataLayer?: unknown[];
+    analyticsQueue?: Array<{
+      name: string;
+      params: Record<string, unknown>;
+    }>;
   }
 
   // requestIdleCallback 类型声明

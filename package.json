@@ -13,8 +13,7 @@
     "test:coverage": "jest --coverage",
     "validate:i18n": "node scripts/validate-translations.js",
     "validate:i18n:watch": "nodemon --watch public/locales --watch pages --watch components --watch lib --ext ts,tsx,json --exec \"npm run validate:i18n\"",
-    "generate:types": "node scripts/generate-translation-types.js",
-    "prebuild": "npm run generate:types"
+    "generate:types": "node scripts/generate-translation-types.js"
   },
   "dependencies": {
     "exif-js": "^2.3.0",

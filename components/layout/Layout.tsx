@@ -1,10 +1,10 @@
 import React from 'react';
 import Head from 'next/head';
-import Script from 'next/script';
 import { useRouter } from 'next/router';
 import { useTranslations } from '../../lib/translations';
 import Header from './Header';
 import Footer from './Footer';
+import GoogleAnalytics from '../analytics/GoogleAnalytics';
 
 
 
@@ -73,12 +73,22 @@ export default function Layout({
 
         {/* 预加载关键资源 */}
         <link rel="preload" href="/logo/android-chrome-512x512.png" as="image" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
         {/* 预加载关键字体 - 改善LCP */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* 关键CSS内联 - 改善LCP */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            body{color:#171717;background:#fff;font-family:Arial,Helvetica,sans-serif}
+            .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+            .btn-primary{background:#3b82f6;color:#fff;padding:0.75rem 1.5rem;border-radius:0.5rem;border:none;cursor:pointer}
+            .btn-primary:hover{background:#2563eb}
+            .animate-fadeIn{animation:fadeIn 0.5s ease-in-out}
+            @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+          `
+        }} />
         
         {/* Favicon配置 */}
         <link rel="icon" href="/logo/favicon.ico" />
@@ -140,22 +150,8 @@ export default function Layout({
 
       </Head>
 
-      {/* Google Analytics - 优化加载 */}
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-P9Z09C23H1"
-        strategy="afterInteractive"
-        onLoad={() => {
-          window.dataLayer = window.dataLayer || [];
-          // 初始化 Google Analytics
-          if (!window.gtag) {
-            window.gtag = function(...args: unknown[]) {
-              window.dataLayer?.push(args);
-            };
-          }
-          window.gtag!('js', new Date());
-          window.gtag!('config', 'G-P9Z09C23H1');
-        }}
-      />
+      {/* Google Analytics - 仅生产环境 */}
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
 
       <div className="min-h-screen bg-white flex flex-col">
         {/* 导航栏 */}

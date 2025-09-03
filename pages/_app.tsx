@@ -71,14 +71,17 @@ function ErrorFallback({ error, resetErrorBoundary }: { error: Error; resetError
 }
 
 export default function App({ Component, pageProps }: AppProps) {
-  // 只在客户端初始化性能监控
+  // 延迟初始化性能监控，避免影响LCP
   if (typeof window !== 'undefined') {
-    // 监控各项Core Web Vitals指标
-    onCLS(sendToAnalytics);  // 累积布局偏移（Cumulative Layout Shift）
-    onINP(sendToAnalytics);  // 交互延迟（Interaction to Next Paint）
-    onFCP(sendToAnalytics);  // 首次内容绘制（First Contentful Paint）
-    onLCP(sendToAnalytics);  // 最大内容绘制（Largest Contentful Paint）
-    onTTFB(sendToAnalytics); // 首字节时间（Time to First Byte）
+    // 使用setTimeout延迟监控初始化
+    setTimeout(() => {
+      // 监控各项Core Web Vitals指标
+      onCLS(sendToAnalytics);  // 累积布局偏移（Cumulative Layout Shift）
+      onINP(sendToAnalytics);  // 交互延迟（Interaction to Next Paint）
+      onFCP(sendToAnalytics);  // 首次内容绘制（First Contentful Paint）
+      onLCP(sendToAnalytics);  // 最大内容绘制（Largest Contentful Paint）
+      onTTFB(sendToAnalytics); // 首字节时间（Time to First Byte）
+    }, 1000); // 1秒后初始化
   }
 
   // 使用简化的翻译系统

@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image'; // 导入Next.js优化的Image组件
 import { useTranslations } from '../../lib/translations';
-import LanguageSelector from './LanguageSelector';
+import LanguageSelector from '../common/LanguageSelector';
 
 export default function Header() {
   const t = useTranslations('header');

@@ -43,7 +43,7 @@
   },
   "contact": {
     "title": "Contact Information",
-    "content": "If you have any questions about these Terms, please contact us through our website contact form or by email."
+    "content": "If you have any questions about these Terms, please contact us at {email} or through our website contact form."
   },
   "lastUpdated": "Last Updated:"
 }

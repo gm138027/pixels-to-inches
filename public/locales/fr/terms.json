@@ -1,0 +1,49 @@
+{
+  "pageTitle": "Conditions d'utilisation",
+  "pageDescription": "Lisez nos conditions d'utilisation pour comprendre vos droits et responsabilités lors de l'utilisation de Pixels vers Pouces.",
+  "introduction": {
+    "title": "Introduction",
+    "content": "Bienvenue sur Pixels vers Pouces. Ces Conditions d'utilisation régissent votre utilisation de notre site web et de nos services. En accédant ou en utilisant notre service, vous acceptez d'être lié par ces conditions."
+  },
+  "acceptance": {
+    "title": "Acceptation des conditions",
+    "content": "En accédant ou en utilisant le site web et les services Pixels vers Pouces, vous acceptez d'être lié par ces Conditions d'utilisation et toutes les lois et réglementations applicables. Si vous n'acceptez pas l'une de ces conditions, il vous est interdit d'utiliser ou d'accéder à ce site."
+  },
+  "useOfService": {
+    "title": "Utilisation du service",
+    "content": "Pixels vers Pouces fournit un outil en ligne gratuit pour convertir les pixels en pouces et vice versa. Le service est fourni « en l'état » et est disponible pour un usage personnel et commercial sans garantie d'aucune sorte."
+  },
+  "intellectualProperty": {
+    "title": "Propriété intellectuelle",
+    "content": "Le service et son contenu original, ses fonctionnalités et sa fonctionnalité sont et resteront la propriété exclusive de Pixels vers Pouces et de ses concédants de licence. Le service est protégé par le droit d'auteur, les marques de commerce et d'autres lois des États-Unis et des pays étrangers."
+  },
+  "disclaimer": {
+    "title": "Avis de non-responsabilité",
+    "content": "Le service est fourni sur une base « en l'état » et « selon la disponibilité ». Nous ne donnons aucune garantie, expresse ou implicite, et déclinons et nions par les présentes toutes autres garanties, y compris, sans limitation, les garanties implicites ou conditions de qualité marchande, d'adéquation à un usage particulier, ou de non-violation de la propriété intellectuelle ou autre violation de droits."
+  },
+  "limitationOfLiability": {
+    "title": "Limitation de responsabilité",
+    "content": "En aucun cas Pixels vers Pouces, ni ses directeurs, employés, partenaires, agents, fournisseurs ou affiliés, ne seront responsables de tout dommage indirect, accessoire, spécial, consécutif ou punitif, y compris sans limitation, la perte de profits, de données, d'utilisation, de clientèle ou d'autres pertes intangibles, résultant de votre accès ou utilisation ou incapacité d'accéder ou d'utiliser le service."
+  },
+  "indemnification": {
+    "title": "Indemnisation",
+    "content": "Vous acceptez de défendre, d'indemniser et de dégager de toute responsabilité Pixels vers Pouces et ses concédants et concédés de licence, ainsi que leurs employés, contractants, agents, dirigeants et directeurs, contre toutes réclamations, dommages, obligations, pertes, responsabilités, coûts ou dettes, et dépenses découlant de votre utilisation et accès au service."
+  },
+  "termination": {
+    "title": "Résiliation",
+    "content": "Nous pouvons résilier ou suspendre l'accès à notre service immédiatement, sans préavis ni responsabilité, pour quelque raison que ce soit, y compris sans limitation si vous violez les Conditions. Toutes les dispositions des Conditions qui par leur nature devraient survivre à la résiliation survivront à la résiliation, y compris, sans limitation, les dispositions de propriété, les dénis de garantie, l'indemnisation et les limitations de responsabilité."
+  },
+  "changes": {
+    "title": "Modifications des conditions",
+    "content": "Nous nous réservons le droit, à notre seule discrétion, de modifier ou de remplacer ces Conditions à tout moment. Si une révision est importante, nous fournirons un préavis d'au moins 30 jours avant que les nouvelles conditions ne prennent effet. Ce qui constitue un changement important sera déterminé à notre seule discrétion."
+  },
+  "governingLaw": {
+    "title": "Droit applicable",
+    "content": "Ces Conditions seront régies et interprétées conformément aux lois des États-Unis, sans égard à ses dispositions de conflit de lois. Notre défaut d'appliquer un droit ou une disposition de ces Conditions ne sera pas considéré comme une renonciation à ces droits."
+  },
+  "contact": {
+    "title": "Informations de contact",
+    "content": "Si vous avez des questions concernant ces Conditions, veuillez nous contacter à {email} ou via notre formulaire de contact sur le site web."
+  },
+  "lastUpdated": "Dernière mise à jour :"
+}

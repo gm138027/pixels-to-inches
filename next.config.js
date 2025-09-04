@@ -2,9 +2,9 @@
 const nextConfig = {
   // 国际化配置 - 使用 Next.js 内置 i18n
   i18n: {
-    locales: ['en'], // 支持的语言列表
+    locales: ['en', 'fr'], // 支持的语言列表：英语和法语
     defaultLocale: 'en', // 默认语言
-    localeDetection: false, // 禁用自动语言检测，使用显式语言选择
+    localeDetection: false, // 禁用自动语言检测，使用手动选择
   },
 
   // URL结构配置

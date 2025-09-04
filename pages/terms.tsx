@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '../components/layout/Layout';
 import { useTranslations, getStaticPropsWithTranslations } from '../lib/translations';
 import Breadcrumb, { BreadcrumbContainer } from '../components/common/Breadcrumb';
+import { contactConfig } from '../config/contact';
 
 export default function Terms() {
   const t = useTranslations('terms');
@@ -118,9 +119,11 @@ export default function Terms() {
                 <h2 className="text-xl font-semibold text-neutral-900 mb-4">
                   {t('contact.title')}
                 </h2>
-                <p className="text-neutral-700 mb-4">
-                  {t('contact.content')}
-                </p>
+                <p className="text-neutral-700 mb-4" dangerouslySetInnerHTML={{
+                  __html: t('contact.content').replace('{email}',
+                    `<a href="mailto:${contactConfig.email}" class="text-blue-600 hover:text-blue-800 underline">${contactConfig.email}</a>`
+                  )
+                }} />
               </section>
 
               <div className="border-t border-neutral-200 pt-6 mt-6">

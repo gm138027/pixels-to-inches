@@ -7,7 +7,7 @@ module.exports = {
   // 翻译文件配置
   locales: {
     // 支持的语言列表
-    supported: ['en'],
+    supported: ['en', 'fr'],
     // 默认语言
     default: 'en',
     // 翻译文件目录

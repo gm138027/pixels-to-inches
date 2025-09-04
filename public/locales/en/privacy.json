@@ -91,7 +91,7 @@
     "title": "Contact Us",
     "content": "If you have any questions about this Privacy Policy, please contact us:",
     "methods": [
-      "By email: privacy@pixelstoinches.com",
+      "By email: {email}",
       "By visiting our contact page on our website"
     ]
   },

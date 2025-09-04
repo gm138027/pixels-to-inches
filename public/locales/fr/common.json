@@ -1,0 +1,310 @@
+{
+  "common": {
+    "copySuccess": "✓"
+  },
+  "breadcrumb": {
+    "home": "Accueil",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation"
+  },
+  "modeSelector": {
+    "forScreens": "Pour écrans",
+    "forPrinters": "Pour imprimantes",
+    "monitorAlt": "Moniteur",
+    "printerAlt": "Imprimante",
+    "screenModeAriaLabel": "Basculer en mode écran, utiliser PPP pour le calcul",
+    "printModeAriaLabel": "Basculer en mode impression, utiliser DPI pour le calcul"
+  },
+  "converter": {
+    "pixels": "pixels",
+    "inches": "Pouces",
+    "ppi": "PPP",
+    "dpi": "DPI",
+    "widthPx": "Largeur(px)",
+    "heightPx": "Hauteur(px)",
+    "widthIn": "Largeur(po)",
+    "heightIn": "Hauteur(po)",
+    "copy": "copier",
+    "enterPixelValue": "Saisir la valeur en pixels",
+    "enterInchValue": "Saisir la valeur en pouces",
+    "enterWidthPixels": "Saisir la largeur en pixels",
+    "enterHeightPixels": "Saisir la hauteur en pixels",
+    "enterWidthInches": "Saisir la largeur en pouces",
+    "enterHeightInches": "Saisir la hauteur en pouces",
+    "copyPixelValue": "Copier la valeur en pixels dans le presse-papiers",
+    "copyInchValue": "Copier la valeur en pouces dans le presse-papiers",
+    "copyPixelDimensions": "Copier les dimensions en pixels dans le presse-papiers",
+    "copyInchDimensions": "Copier les dimensions en pouces dans le presse-papiers",
+    "setPpiValue": "Définir la valeur PPP de l'écran (pixels par pouce)",
+    "setDpiValue": "Définir la valeur DPI d'impression (points par pouce)",
+    "increasePpi": "Augmenter la valeur PPP",
+    "decreasePpi": "Diminuer la valeur PPP",
+    "increaseDpi": "Augmenter la valeur DPI",
+    "decreaseDpi": "Diminuer la valeur DPI",
+    "uploadHint": "Si vous ne connaissez pas le PPP ou DPI de l'image, cliquez",
+    "uploadHintEnd": "pour découvrir les détails de l'image."
+  },
+  "imageUpload": {
+    "uploadImage": "Télécharger une image"
+  },
+  "imageInfo": {
+    "xResolution": "Résolution X",
+    "yResolution": "Résolution Y",
+    "resolutionUnit": "Unité de résolution",
+    "imageWidth": "Largeur de l'image",
+    "fileSize": "Taille du fichier",
+    "fileFormat": "Format de fichier",
+    "colorDepth": "Profondeur de couleur",
+    "compressionType": "Type de compression",
+    "creationDate": "Date de création",
+    "lastModified": "Dernière modification"
+  },
+  "imageAnalyzer": {
+    "title": "Résultats de l'analyse d'image",
+    "dragDropHint": "Glissez-déposez une image ici, ou cliquez pour sélectionner",
+    "supportedFormats": "Formats supportés : JPEG, PNG, GIF, BMP, TIFF",
+    "analyzing": "Analyse de l'image en cours...",
+    "analysisComplete": "Analyse terminée",
+    "noImageSelected": "Aucune image sélectionnée",
+    "analysisError": "Erreur lors de l'analyse de l'image",
+    "imageDetails": "Détails de l'image",
+    "conversionSuggestion": "Suggestion de conversion",
+    "recommendedPpi": "PPP recommandé pour cette image",
+    "recommendedDpi": "DPI recommandé pour cette image",
+    "useThisValue": "Utiliser cette valeur",
+    "imageTooBig": "Le fichier image est trop volumineux. Veuillez sélectionner une image plus petite.",
+    "invalidFormat": "Format d'image invalide. Veuillez sélectionner un fichier image valide.",
+    "uploadFailed": "Échec du téléchargement de l'image. Veuillez réessayer."
+  },
+  "languageSelector": {
+    "selectLanguage": "Choisir la langue"
+  },
+  "header": {
+    "homeAriaLabel": "Convertisseur Pixels vers Pouces - Accueil",
+    "logoAlt": "Logo du Convertisseur Pixels vers Pouces"
+  },
+  "footer": {
+    "description": "Convertisseur gratuit en ligne de pixels vers pouces",
+    "quickLinks": "Liens rapides",
+    "converterTool": "Outil de conversion",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsOfService": "Conditions d'utilisation",
+    "features": "Fonctionnalités",
+    "realTimeConversion": "Conversion en temps réel",
+    "imageDpiAnalysis": "Analyse DPI d'image",
+    "screenPrintModes": "Modes écran et impression",
+    "responsiveDesign": "Design adaptatif",
+    "copyright": "© {year} Pixels vers Pouces. Tous droits réservés.",
+    "madeWith": "Fait avec ❤️ pour les designers et développeurs"
+  },
+  "seo": {
+    "pageTitle": "Convertir pixels en pouces en ligne gratuitement",
+    "pageDescription": "Avec ce convertisseur pixels vers pouces, convertissez facilement les pixels en pouces en ligne pour écran ou imprimante, sans inscription ni téléchargement, entièrement gratuit.",
+    "h1": "convertisseur pixels vers pouces",
+    "h1Description": "Convertissez facilement les pixels(px) en pouces (et vice versa) en ligne, supportez le téléchargement d'images pour détecter automatiquement PPP/DPI",
+    "intro": {
+      "title": "Qu'est-ce qu'un convertisseur pixels vers pouces",
+      "content": "Un convertisseur pixels vers pouces est un outil qui vous aide à convertir les mesures entre pixels (px) et pouces (po). Cette conversion est essentielle pour les designers, développeurs et toute personne travaillant avec des images numériques qui a besoin de comprendre la taille physique de leur contenu numérique. Notre convertisseur supporte les modes écran (PPP - Pixels Par Pouce) et impression (DPI - Points Par Pouce), garantissant des conversions précises pour tout cas d'usage."
+    },
+    "howTo": {
+      "title": "Comment convertir les pixels en pouces",
+      "content": "Convertir les pixels en pouces est simple avec notre outil :",
+      "steps": {
+        "0": "Choisissez votre mode de conversion : Écran (PPP) pour les affichages numériques ou Impression (DPI) pour l'impression physique",
+        "1": "Saisissez la valeur en pixels que vous souhaitez convertir dans le champ pixels",
+        "2": "Ajustez la valeur PPP/DPI si nécessaire (96 PPP pour les écrans, 300 DPI pour l'impression est standard)",
+        "3": "L'équivalent en pouces sera calculé automatiquement et affiché instantanément",
+        "4": "Utilisez le bouton copier pour copier le résultat dans votre presse-papiers pour une utilisation facile dans d'autres applications"
+      },
+      "formula": "Formule : Pouces = Pixels ÷ PPP (ou DPI)"
+    },
+    "otherWays": {
+      "title": "Autres façons de convertir les pixels en pouces",
+      "intro": "Bien que notre convertisseur en ligne soit l'option la plus pratique, il existe plusieurs autres méthodes que vous pouvez utiliser :",
+      "methods": {
+        "0": "Calcul manuel",
+        "1": "Calculatrices en ligne",
+        "2": "Logiciels de design",
+        "3": "Formules de tableur",
+        "4": "Applications mobiles"
+      },
+      "methodDetails": {
+        "manual": "Utilisez la formule : Pouces = Pixels ÷ DPI. Nécessite de connaître la valeur DPI/PPP exacte.",
+        "online": "Divers sites web offrent des outils de conversion pixels vers pouces avec différentes fonctionnalités.",
+        "software": "Adobe Photoshop, GIMP et autres outils de design ont des fonctionnalités de conversion intégrées.",
+        "spreadsheet": "Créez des formules personnalisées dans Excel ou Google Sheets pour les conversions en lot.",
+        "mobile": "Téléchargez des applications de conversion pour des calculs en déplacement."
+      },
+      "examples": {
+        "title": "Exemples de conversion",
+        "example1": {
+          "title": "Résolutions d'écran courantes",
+          "screen96": "1920 pixels à 96 PPP = 20 pouces",
+          "screen192": "1920 pixels à 192 PPP = 10 pouces",
+          "print300": "1920 pixels à 300 DPI = 6,4 pouces"
+        },
+        "example2": {
+          "title": "Exemples de taille d'impression",
+          "screen96Title": "Affichage Web (96 PPP) :",
+          "screen96": "300 pixels = 3,125 pouces",
+          "screen144Title": "Écran haute résolution (144 PPP) :",
+          "screen144": "300 pixels = 2,08 pouces",
+          "print300Title": "Qualité d'impression (300 DPI) :",
+          "print300": "300 pixels = 1 pouce"
+        }
+      }
+    },
+    "features": {
+      "title": "Fonctionnalités de notre convertisseur Pixels vers Pouces",
+      "list": {
+        "0": "Conversion bidirectionnelle : Convertissez à la fois pixels vers pouces ET pouces vers pixels de manière transparente",
+        "1": "Modes de conversion doubles : Paramètres séparés pour écrans (PPP) et imprimantes (DPI)",
+        "2": "Conversion en temps réel : Résultats instantanés pendant que vous tapez dans les deux sens",
+        "3": "Analyse d'images : Téléchargez des images pour détecter automatiquement les valeurs DPI/PPP",
+        "4": "Fonctionnalité de copie : Copie en un clic des résultats de conversion",
+        "5": "Responsive mobile : Fonctionne parfaitement sur tous les appareils",
+        "6": "Aucune inscription requise : Complètement gratuit et anonyme",
+        "7": "Haute précision : Calculs précis jusqu'à 4 décimales",
+        "8": "Support de formats multiples : Gère divers formats d'images pour la détection DPI"
+      }
+    },
+    "commonUses": {
+      "title": "Utilisations courantes de la conversion pixels vers pouces",
+      "list": {
+        "0": "<strong>Design web :</strong> S'assurer que les éléments s'affichent à la bonne taille sur différents appareils",
+        "1": "<strong>Design d'impression :</strong> Convertir les œuvres d'art numériques en dimensions d'impression physique",
+        "2": "<strong>Photographie :</strong> Comprendre les tailles d'impression pour les photos numériques",
+        "3": "<strong>Design UI/UX :</strong> Créer des interfaces qui fonctionnent sur diverses densités d'écran",
+        "4": "<strong>Marketing numérique :</strong> Dimensionner les graphiques pour les supports web et imprimés",
+        "5": "<strong>E-commerce :</strong> Afficher les images de produits à des tailles précises",
+        "6": "<strong>Matériel éducatif :</strong> Convertir le contenu numérique pour l'impression physique",
+        "7": "<strong>Documentation technique :</strong> S'assurer que les diagrammes s'impriment à la bonne échelle"
+      }
+    },
+    "whyChoose": {
+      "title": "Pourquoi choisir notre convertisseur Pixels vers Pouces",
+      "list": {
+        "0": "<strong>Précision :</strong> Calculs de conversion de qualité professionnelle",
+        "1": "<strong>Rapidité :</strong> Résultats instantanés sans délais",
+        "2": "<strong>Polyvalence :</strong> Supporte les flux de travail écran et impression",
+        "3": "<strong>Convivial :</strong> Interface propre et intuitive",
+        "4": "<strong>Gratuit pour toujours :</strong> Aucun coût caché ou limitation",
+        "5": "<strong>Axé sur la confidentialité :</strong> Aucun stockage de données ou suivi",
+        "6": "<strong>Mises à jour régulières :</strong> Fonctionnalités continuellement améliorées",
+        "7": "<strong>Multi-plateforme :</strong> Fonctionne sur tout appareil avec un navigateur web",
+        "8": "<strong>Qualité professionnelle :</strong> Approuvé par les designers et développeurs du monde entier"
+      }
+    },
+    "dpiPpi": {
+      "title": "Comprendre DPI vs PPP",
+      "ppi": {
+        "title": "PPP (Pixels Par Pouce)",
+        "description": "Utilisé pour les affichages numériques et les écrans. Détermine combien de pixels tiennent dans un pouce d'espace d'écran.",
+        "values": {
+          "0": "<strong>Moniteurs standard :</strong> 96 PPP",
+          "1": "<strong>Moniteurs haute résolution :</strong> 144-192 PPP",
+          "2": "<strong>Écrans Retina :</strong> 220-300+ PPP",
+          "3": "<strong>Appareils mobiles :</strong> 300-500+ PPP"
+        }
+      },
+      "dpi": {
+        "title": "DPI (Points Par Pouce)",
+        "description": "Utilisé pour l'impression. Détermine combien de points d'encre une imprimante peut placer dans un pouce.",
+        "values": {
+          "0": "<strong>Impression brouillon :</strong> 150 DPI",
+          "1": "<strong>Impression standard :</strong> 300 DPI",
+          "2": "<strong>Impression haute qualité :</strong> 600 DPI",
+          "3": "<strong>Impression professionnelle :</strong> 1200+ DPI"
+        }
+      },
+      "conclusion": "Choisissez PPP pour le travail d'écran et DPI pour le travail d'impression pour assurer des conversions précises."
+    },
+    "commonExamples": {
+      "title": "Exemples de conversion courants",
+      "screen": {
+        "title": "Conversions d'écran",
+        "examples": {
+          "0": "1920px à 96 PPP = 20 pouces",
+          "1": "1080px à 96 PPP = 11,25 pouces",
+          "2": "720px à 96 PPP = 7,5 pouces",
+          "3": "480px à 96 PPP = 5 pouces"
+        }
+      },
+      "print": {
+        "title": "Conversions d'impression",
+        "examples": {
+          "0": "3000px à 300 DPI = 10 pouces",
+          "1": "2400px à 300 DPI = 8 pouces",
+          "2": "1800px à 300 DPI = 6 pouces",
+          "3": "1200px à 300 DPI = 4 pouces"
+        }
+      },
+      "mobile": {
+        "title": "Exemples mobiles",
+        "examples": {
+          "0": "iPhone 17 : 2884px diagonal à 460 PPP = 6,27 pouces",
+          "1": "Samsung Galaxy S24 : 2640px diagonal à 416 PPP = 6,35 pouces",
+          "2": "iPad Pro 12.9 : 3413px diagonal à 264 PPP = 12,93 pouces"
+        }
+      }
+    },
+    "faq": {
+      "title": "FAQ pixels vers pouces",
+      "questions": {
+        "0": {
+          "question": "Qu'est-ce qu'un pixel ?",
+          "answer": "Un pixel est la plus petite unité d'une image numérique ou d'un affichage. Il signifie « élément d'image » et représente un seul point de couleur dans une image numérique ou sur un écran."
+        },
+        "1": {
+          "question": "Comment convertir les pixels en pouces ?",
+          "answer": "Utilisez la formule : Pouces = Pixels ÷ DPI (ou PPP). Pour les écrans, utilisez généralement 96 PPP. Pour l'impression, utilisez 300 DPI ou plus."
+        },
+        "2": {
+          "question": "Combien de pixels font 1 pouce ?",
+          "answer": "Cela dépend de la résolution. À 96 PPP (écran standard), 1 pouce = 96 pixels. À 300 DPI (impression standard), 1 pouce = 300 pixels."
+        },
+        "3": {
+          "question": "Combien de pouces font un pixel ?",
+          "answer": "À 96 PPP, 1 pixel = 0,0104 pouce. À 300 DPI, 1 pixel = 0,0033 pouce. La valeur exacte dépend du paramètre PPP/DPI."
+        },
+        "4": {
+          "question": "300 pixels font-ils un pouce ?",
+          "answer": "Seulement à 300 DPI. À la résolution d'écran standard (96 PPP), 300 pixels équivalent à 3,125 pouces. La conversion dépend de la valeur DPI/PPP."
+        },
+        "5": {
+          "question": "Puis-je convertir les pixels en pouces sur mon téléphone ?",
+          "answer": "Oui ! Notre convertisseur est entièrement responsive et fonctionne parfaitement sur les appareils mobiles. Vous pouvez y accéder via n'importe quel navigateur web sur votre téléphone ou tablette."
+        },
+        "6": {
+          "question": "Quels formats d'images le convertisseur Pixels vers Pouces peut-il utiliser ?",
+          "answer": "Notre analyseur d'images supporte les formats JPEG, PNG, GIF, BMP et TIFF. Téléchargez n'importe lequel de ces formats pour détecter automatiquement les valeurs DPI/PPP."
+        },
+        "7": {
+          "question": "Stockez-vous les images que je télécharge ?",
+          "answer": "Non, nous ne stockons aucune image. Toute l'analyse d'image est effectuée localement dans votre navigateur, garantissant une confidentialité et une sécurité complètes."
+        },
+        "8": {
+          "question": "Puis-je convertir les pixels en pouces à l'infini ?",
+          "answer": "Oui, il n'y a aucune limite sur le nombre de conversions que vous pouvez effectuer. Notre outil est complètement gratuit avec une utilisation illimitée."
+        }
+      }
+    },
+    "webApp": {
+      "name": "Pixels vers Pouces",
+      "category": "Application de Design",
+      "operatingSystem": "Tous",
+      "price": "0",
+      "currency": "USD",
+      "creator": "Pixels vers Pouces",
+      "browserRequirements": "Nécessite JavaScript. Nécessite HTML5.",
+      "features": [
+        "Conversion pixels vers pouces en temps réel",
+        "Conversion bidirectionnelle (pixels vers pouces et pouces vers pixels)",
+        "Support des modes écran et impression",
+        "Analyse DPI d'image",
+        "Design responsive mobile",
+        "Gratuit à utiliser"
+      ]
+    }
+  }
+}

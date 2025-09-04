@@ -1,0 +1,99 @@
+{
+  "pageTitle": "Politique de confidentialité",
+  "pageDescription": "Découvrez comment nous collectons, utilisons et protégeons vos informations personnelles sur Pixels vers Pouces.",
+  "introduction": {
+    "title": "Introduction",
+    "content": "Cette Politique de confidentialité décrit comment Pixels vers Pouces (« nous », « notre » ou « nos ») collecte, utilise et protège vos informations personnelles lorsque vous utilisez notre site web et nos services. Nous nous engageons à protéger votre vie privée et à assurer la sécurité de vos informations personnelles."
+  },
+  "informationCollection": {
+    "title": "Informations que nous collectons",
+    "content": "Nous collectons des informations pour fournir de meilleurs services à tous nos utilisateurs. Les types d'informations que nous collectons incluent :",
+    "personal": {
+      "title": "Informations personnelles",
+      "content": "Lorsque vous utilisez notre outil de conversion pixels vers pouces, aucune information personnelle n'est requise ou stockée. Tous les calculs sont effectués localement dans votre navigateur."
+    },
+    "usage": {
+      "title": "Informations d'utilisation",
+      "content": "Nous utilisons Google Analytics et des services similaires pour comprendre l'utilisation du site web. Ces services peuvent automatiquement collecter des informations telles que votre adresse IP, le type de navigateur, le système d'exploitation, les URL de référence, les informations sur l'appareil et les pages visitées."
+    }
+  },
+  "useOfInformation": {
+    "title": "Comment les informations sont utilisées",
+    "content": "Les informations collectées via les services d'analyse tiers sont utilisées aux fins suivantes :",
+    "purposes": [
+      "Pour fournir et maintenir notre service de conversion",
+      "Pour comprendre comment les visiteurs utilisent notre site web et identifier les domaines d'amélioration",
+      "Pour surveiller les performances du site web et les métriques Core Web Vitals",
+      "Pour analyser les modèles de comportement des utilisateurs et optimiser l'expérience utilisateur"
+    ]
+  },
+  "informationSharing": {
+    "title": "Partage d'informations",
+    "content": "Nous ne vendons, n'échangeons ou ne transférons pas vos informations personnelles à des tiers. Cependant, nous pouvons partager des informations dans les circonstances suivantes :",
+    "thirdParty": {
+      "title": "Services tiers",
+      "content": "Nous utilisons des services d'analyse tiers qui peuvent collecter et traiter certaines informations. Ces services ont leurs propres politiques de confidentialité et sont tenus de protéger vos informations."
+    }
+  },
+  "dataSecurity": {
+    "title": "Sécurité des données",
+    "content": "Nous mettons en œuvre des mesures de sécurité techniques et organisationnelles appropriées pour protéger contre le traitement non autorisé ou illégal de vos données personnelles et contre la perte, la destruction ou les dommages accidentels. Cependant, veuillez noter qu'aucune méthode de transmission sur Internet ou méthode de stockage électronique n'est sécurisée à 100%.",
+    "measures": [
+      "Chiffrement des données en transit et au repos",
+      "Évaluations et mises à jour de sécurité régulières",
+      "Accès limité aux informations personnelles selon le principe du besoin de savoir"
+    ]
+  },
+  "cookies": {
+    "title": "Cookies et technologies de suivi",
+    "content": "Nous utilisons des cookies et des technologies de suivi similaires aux fins suivantes :",
+    "types": {
+      "essential": {
+        "title": "Cookies essentiels",
+        "content": "Ces cookies sont nécessaires au fonctionnement de notre site web et ne peuvent pas être désactivés."
+      },
+      "analytics": {
+        "title": "Cookies d'analyse",
+        "content": "Ces cookies nous permettent de compter les visites et les sources de trafic afin que nous puissions mesurer et améliorer les performances de notre site."
+      }
+    },
+    "management": "Vous pouvez contrôler et/ou supprimer les cookies comme vous le souhaitez. Vous pouvez supprimer tous les cookies qui sont déjà sur votre ordinateur et vous pouvez configurer la plupart des navigateurs pour empêcher qu'ils soient placés."
+  },
+  "userRights": {
+    "title": "Vos droits",
+    "content": "Vous avez certains droits concernant vos informations personnelles :",
+    "rights": [
+      "Le droit d'accéder à vos informations personnelles",
+      "Le droit de corriger des informations personnelles inexactes",
+      "Le droit d'effacer vos informations personnelles",
+      "Le droit de restreindre le traitement de vos informations personnelles",
+      "Le droit à la portabilité des données",
+      "Le droit de vous opposer au traitement"
+    ]
+  },
+  "dataRetention": {
+    "title": "Conservation des données",
+    "content": "Nous conservons les informations personnelles uniquement aussi longtemps que nécessaire pour remplir les objectifs pour lesquels elles ont été collectées et traitées, conformément à nos politiques de conservation et à la loi applicable."
+  },
+  "internationalTransfers": {
+    "title": "Transferts internationaux de données",
+    "content": "Vos informations peuvent être transférées vers et traitées dans des pays autres que le vôtre. Nous nous assurons que ces transferts sont soumis à des garanties appropriées."
+  },
+  "childrenPrivacy": {
+    "title": "Confidentialité des enfants",
+    "content": "Notre service ne s'adresse pas aux enfants de moins de 13 ans. Nous ne collectons pas sciemment d'informations personnelles auprès d'enfants de moins de 13 ans. Si vous êtes un parent ou un tuteur et que vous savez que votre enfant nous a fourni des informations personnelles, veuillez nous contacter."
+  },
+  "policyChanges": {
+    "title": "Modifications de cette politique de confidentialité",
+    "content": "Nous pouvons mettre à jour notre Politique de confidentialité de temps à autre. Nous vous informerons de tout changement en publiant la nouvelle Politique de confidentialité sur cette page et en mettant à jour la date de « Dernière mise à jour »."
+  },
+  "contact": {
+    "title": "Nous contacter",
+    "content": "Si vous avez des questions concernant cette Politique de confidentialité, veuillez nous contacter :",
+    "methods": [
+      "Par email : {email}",
+      "En visitant notre page de contact sur notre site web"
+    ]
+  },
+  "lastUpdated": "Dernière mise à jour :"
+}

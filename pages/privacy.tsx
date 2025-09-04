@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '../components/layout/Layout';
 import { useTranslations, getStaticPropsWithTranslations } from '../lib/translations';
 import Breadcrumb, { BreadcrumbContainer } from '../components/common/Breadcrumb';
+import { contactConfig } from '../config/contact';
 
 export default function Privacy() {
   const t = useTranslations('privacy');
@@ -222,7 +223,11 @@ export default function Privacy() {
                   {t('contact.content')}
                 </p>
                 <ul className="list-disc list-inside text-neutral-700 space-y-2 ml-4">
-                  <li>{t('contact.methods.0')}</li>
+                  <li dangerouslySetInnerHTML={{
+                    __html: t('contact.methods.0').replace('{email}',
+                      `<a href="mailto:${contactConfig.email}" class="text-blue-600 hover:text-blue-800 underline">${contactConfig.email}</a>`
+                    )
+                  }} />
                   <li>{t('contact.methods.1')}</li>
                 </ul>
               </section>

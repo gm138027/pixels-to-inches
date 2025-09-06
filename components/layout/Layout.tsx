@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useTranslations } from '../../lib/translations';
 import Header from './Header';
 import Footer from './Footer';
-import GoogleAnalytics from '../analytics/GoogleAnalytics';
+
 
 
 
@@ -150,8 +150,7 @@ export default function Layout({
 
       </Head>
 
-      {/* Google Analytics - 仅生产环境 */}
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
+
 
       <div className="min-h-screen bg-white flex flex-col">
         {/* 导航栏 */}

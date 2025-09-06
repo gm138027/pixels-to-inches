@@ -13,23 +13,14 @@ export const useAnalytics = () => {
   const trackEvent = useCallback((event: AnalyticsEvent) => {
     if (typeof window === 'undefined') return;
 
-    const analyticsData = {
-      name: event.event,
-      params: {
+    // 如果Google Analytics已加载，直接发送
+    if (window.gtag) {
+      window.gtag('event', event.event, {
         event_category: event.category,
         event_action: event.action,
         event_label: event.label,
         value: event.value
-      }
-    };
-
-    // 如果Google Analytics已加载，直接发送
-    if (window.gtag) {
-      window.gtag('event', analyticsData.name, analyticsData.params);
-    } else {
-      // 否则加入队列，等待加载后处理
-      window.analyticsQueue = window.analyticsQueue || [];
-      window.analyticsQueue.push(analyticsData);
+      });
     }
 
     // 开发环境记录日志

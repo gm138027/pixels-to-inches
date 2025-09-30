@@ -19,6 +19,11 @@ const OG_LOCALE_MAP: Record<string, string> = {
   fr: "fr_FR"
 };
 
+const LOCALE_DOMAIN_MAP: Record<string, string> = {
+  en: "https://pixelstoinches.com",
+  fr: "https://pixelstoinches.com"
+};
+
 export default function Layout({
   children,
   title = "Pixels to Inches - Free Online Tool",
@@ -26,7 +31,7 @@ export default function Layout({
 }: LayoutProps) {
   const router = useRouter();
   const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || DEFAULT_SITE_URL;
-  const siteUrl = configuredSiteUrl.replace(/\/$/, "");
+  const fallbackSiteUrl = configuredSiteUrl.replace(/\/$/, "");
 
   const routerLocales = router.locales && router.locales.length > 0 ? router.locales : SUPPORTED_LOCALES;
   const locales = Array.from(new Set([...SUPPORTED_LOCALES, ...routerLocales]));
@@ -61,16 +66,29 @@ export default function Layout({
     return basePath === "/" ? `/${locale}` : `/${locale}${basePath}`;
   };
 
-  const canonicalPath = getPathForLocale(defaultLocale);
-  const canonicalUrl = `${siteUrl}${canonicalPath === "/" ? "" : canonicalPath}` || siteUrl;
-  const ogImageUrl = `${siteUrl}/logo/android-chrome-512x512.png`;
+  const getSiteUrlForLocale = (locale: string) => {
+    const domain = LOCALE_DOMAIN_MAP[locale];
+    if (domain) {
+      return domain.replace(/\/$/, "");
+    }
+    return fallbackSiteUrl;
+  };
+
+  const canonicalPath = getPathForLocale(activeLocale);
+  const canonicalBaseUrl = getSiteUrlForLocale(activeLocale);
+  const canonicalUrl = `${canonicalBaseUrl}${canonicalPath === "/" ? "" : canonicalPath}` || canonicalBaseUrl;
+  const ogImageUrl = `${canonicalBaseUrl}/logo/android-chrome-512x512.png`;
 
   const alternateLinks = locales.map((locale) => {
     const localePath = getPathForLocale(locale);
-    const href = `${siteUrl}${localePath === "/" ? "" : localePath}`;
+    const localeBaseUrl = getSiteUrlForLocale(locale);
+    const href = `${localeBaseUrl}${localePath === "/" ? "" : localePath}`;
 
     return { locale, href };
   });
+
+  const defaultLocaleCanonicalPath = getPathForLocale(defaultLocale);
+  const defaultLocaleCanonicalUrl = `${getSiteUrlForLocale(defaultLocale)}${defaultLocaleCanonicalPath === "/" ? "" : defaultLocaleCanonicalPath}`;
 
   const t = useTranslations("seo");
 
@@ -94,7 +112,7 @@ export default function Layout({
         {alternateLinks.map(({ locale, href }) => (
           <link key={locale} rel="alternate" hrefLang={locale} href={href} />
         ))}
-        <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
+        <link rel="alternate" hrefLang="x-default" href={defaultLocaleCanonicalUrl} />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
@@ -171,7 +189,7 @@ export default function Layout({
               creator: {
                 "@type": "Organization",
                 name: t("webApp.creator"),
-                url: siteUrl
+                url: getSiteUrlForLocale(activeLocale)
               },
               featureList: t("webApp.features"),
               browserRequirements: t("webApp.browserRequirements"),
@@ -195,7 +213,7 @@ export default function Layout({
                   "@type": "ListItem",
                   position: 1,
                   name: "Home",
-                  item: siteUrl
+                  item: defaultLocaleCanonicalUrl
                 }
               ]
             })

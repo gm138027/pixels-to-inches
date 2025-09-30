@@ -1,4 +1,4 @@
-import { GetServerSideProps } from 'next'
+﻿import { GetServerSideProps } from 'next'
 
 const DEFAULT_SITE_URL = 'https://pixelstoinches.com'
 const SUPPORTED_LOCALES = ['en', 'fr'] as const
@@ -16,49 +16,57 @@ const ROUTES: RouteConfig[] = [
   { path: '/terms', changefreq: 'monthly', priority: '0.3' }
 ]
 
-function getSiteUrl() {
-  const configured = process.env.NEXT_PUBLIC_SITE_URL || DEFAULT_SITE_URL
-  return configured.replace(/\/$/, '')
+function getSiteUrl(locale: string) {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || DEFAULT_SITE_URL
+  const normalized = base.replace(/\/$/, '')
+
+  if (locale === DEFAULT_LOCALE) {
+    return normalized
+  }
+
+  return `${normalized}/${locale}`
 }
 
 function getCurrentDate() {
   return new Date().toISOString().split('T')[0]
 }
 
-function buildPath(path: string, locale: typeof SUPPORTED_LOCALES[number]) {
-  if (locale === DEFAULT_LOCALE) {
-    return path === '/' ? '' : path
-  }
+function generateUrlEntries() {
+  const lastmod = getCurrentDate()
 
-  if (path === '/') {
-    return `/${locale}`
-  }
+  const entries: string[] = []
 
-  return `/${locale}${path}`
-}
+  for (const route of ROUTES) {
+    for (const locale of SUPPORTED_LOCALES) {
+      const localeSiteUrl = getSiteUrl(locale)
+      const href = route.path === '/' ? localeSiteUrl : `${localeSiteUrl}${route.path}`
 
-function generateUrlEntry(baseUrl: string, route: RouteConfig, lastmod: string) {
-  const defaultHref = `${baseUrl}${buildPath(route.path, DEFAULT_LOCALE)}`
-  const alternateLinks = SUPPORTED_LOCALES.map((locale) => {
-    const href = `${baseUrl}${buildPath(route.path, locale)}`
-    return `    <xhtml:link rel="alternate" hreflang="${locale}" href="${href}" />`
-  }).join('\n')
+      const alternates = SUPPORTED_LOCALES.map((altLocale) => {
+        const altSiteUrl = getSiteUrl(altLocale)
+        const altHref = route.path === '/' ? altSiteUrl : `${altSiteUrl}${route.path}`
+        return `    <xhtml:link rel="alternate" hreflang="${altLocale}" href="${altHref}" />`
+      }).join('\n')
 
-  return `  <url>
-    <loc>${defaultHref}</loc>
+      const defaultHref = route.path === '/' ? getSiteUrl(DEFAULT_LOCALE) : `${getSiteUrl(DEFAULT_LOCALE)}${route.path}`
+
+      const entry = `  <url>
+    <loc>${href}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
-${alternateLinks}
+${alternates}
     <xhtml:link rel="alternate" hreflang="x-default" href="${defaultHref}" />
   </url>`
+
+      entries.push(entry)
+    }
+  }
+
+  return entries.join('\n\n')
 }
 
 function generateSiteMap() {
-  const siteUrl = getSiteUrl()
-  const lastmod = getCurrentDate()
-
-  const urlEntries = ROUTES.map((route) => generateUrlEntry(siteUrl, route, lastmod)).join('\n\n')
+  const urlEntries = generateUrlEntries()
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"

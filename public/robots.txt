@@ -10,4 +10,7 @@ Crawl-delay: 1
 # Block common bot traps and admin areas (if any)
 Disallow: /admin/
 Disallow: /private/
-Disallow: /*.json$
+Disallow: /api/private/
+
+# Allow Next.js data routes
+Allow: /_next/data/

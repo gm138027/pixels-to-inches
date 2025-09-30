@@ -1,8 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import ImagePreview from './ImagePreview';
 import ImageInfo from './ImageInfo';
-import { extractImageInfo, createImagePreviewUrl, revokeImagePreviewUrl, ImageInfo as ImageInfoType } from '../../lib/imageAnalysis';
-import { useTranslations } from '../../lib/translations'; // 导入翻译函数
+import {
+  extractImageInfo,
+  createImagePreviewUrl,
+  revokeImagePreviewUrl,
+  ImageInfo as ImageInfoType
+} from '../../lib/imageAnalysis';
+import { useTranslations } from '../../lib/translations';
 
 interface ImageAnalyzerProps {
   selectedFile: File | null;
@@ -13,13 +18,11 @@ export default function ImageAnalyzer({ selectedFile }: ImageAnalyzerProps) {
   const [imageUrl, setImageUrl] = useState<string>('');
   const [error, setError] = useState<string>('');
   const [isExpanded, setIsExpanded] = useState(true);
-  const t = useTranslations('imageAnalyzer'); // 获取图片分析器翻译函数
-  const imageUrlRef = useRef<string>(''); // 用于清理资源
+  const t = useTranslations('imageAnalyzer');
+  const imageUrlRef = useRef<string>('');
 
-  // 处理文件选择
   useEffect(() => {
     if (!selectedFile) {
-      // 清理状态
       if (imageUrlRef.current) {
         revokeImagePreviewUrl(imageUrlRef.current);
         setImageUrl('');
@@ -30,26 +33,22 @@ export default function ImageAnalyzer({ selectedFile }: ImageAnalyzerProps) {
       return;
     }
 
-    // 重置展开状态
     setIsExpanded(true);
 
     const processFile = async () => {
       setError('');
 
       try {
-        // 创建预览URL
         const previewUrl = createImagePreviewUrl(selectedFile);
         setImageUrl(previewUrl);
         imageUrlRef.current = previewUrl;
 
-        // 提取图片信息
         const info = await extractImageInfo(selectedFile);
         setImageInfo(info);
       } catch (err) {
         const errorMessage = err instanceof Error ? err.message : t('analysisError');
         setError(errorMessage);
-        // 清理预览URL - 使用当前状态而不是依赖
-        setImageUrl(currentUrl => {
+        setImageUrl((currentUrl) => {
           if (currentUrl) {
             revokeImagePreviewUrl(currentUrl);
           }
@@ -61,23 +60,20 @@ export default function ImageAnalyzer({ selectedFile }: ImageAnalyzerProps) {
     };
 
     processFile();
-  }, [selectedFile]); // 只依赖selectedFile
+  }, [selectedFile, t]);
 
-  // 清理资源
   useEffect(() => {
     return () => {
       if (imageUrlRef.current) {
         revokeImagePreviewUrl(imageUrlRef.current);
       }
     };
-  }, []); // 使用ref避免依赖问题
+  }, []);
 
-  // 如果没有上传图片，不显示组件
   if (!imageInfo && !error) {
     return null;
   }
 
-  // 如果收起状态，不显示容器
   if (!isExpanded) {
     return null;
   }
@@ -96,7 +92,7 @@ export default function ImageAnalyzer({ selectedFile }: ImageAnalyzerProps) {
             <div className="flex justify-center">
               <ImagePreview imageUrl={imageUrl} fileName={imageInfo.fileName} />
             </div>
-            
+
             <div>
               <ImageInfo imageInfo={imageInfo} />
             </div>
@@ -104,20 +100,19 @@ export default function ImageAnalyzer({ selectedFile }: ImageAnalyzerProps) {
         </div>
       )}
 
-      {/* 收起按钮 */}
       <button
         onClick={() => setIsExpanded(false)}
         className="absolute left-1/2 transform -translate-x-1/2 -bottom-3 bg-neutral-50 border border-neutral-300 rounded-full p-2 hover:bg-neutral-100 transition-colors z-10"
         aria-label="Collapse panel"
       >
-        <svg 
-          width="20" 
-          height="20" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2" 
-          strokeLinecap="round" 
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
           strokeLinejoin="round"
           className="text-neutral-600 transform rotate-180 transition-transform duration-200"
         >

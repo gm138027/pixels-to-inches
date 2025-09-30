@@ -1,4 +1,4 @@
-import React from 'react';
+锘縤mport React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useTranslations } from '../../lib/translations';
@@ -78,22 +78,22 @@ export default function Layout({
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-        {/* 移动端优化标识 */}
+        {/* Mobile optimizations */}
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
-        {/* Canonical URL - 动态生成当前页面的规范URL */}
+        {/* Canonical URL */}
         <link rel="canonical" href={canonicalUrl} />
 
-        {/* hreflang标签 - 多语言支持 */}
+        {/* hreflang alternates */}
         {alternateLinks.map(({ locale, href }) => (
           <link key={locale} rel="alternate" hrefLang={locale} href={href} />
         ))}
         <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
 
-        {/* Open Graph标签 - 用于社交媒体分享优化 */}
+        {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
@@ -106,30 +106,28 @@ export default function Layout({
         <meta property="og:locale" content={OG_LOCALE_MAP[activeLocale] || OG_LOCALE_MAP.en} />
         {alternateLinks
           .filter(({ locale }) => locale !== activeLocale)
-          .map(({ locale, href }) => (
+          .map(({ locale }) => (
             <meta key={`og-alt-${locale}`} property="og:locale:alternate" content={OG_LOCALE_MAP[locale] || locale} />
           ))}
 
-        {/* Twitter Cards标签 - 用于Twitter分享优化 */}
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={ogImageUrl} />
         <meta name="twitter:image:alt" content="Pixels to Inches - Free Online Tool" />
 
-        {/* 其他SEO优化标签 */}
+        {/* Additional meta */}
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
         <meta name="author" content="Pixels to Inches" />
         <meta name="keywords" content="pixels to inches, px to in, converter, calculator, DPI, PPI, design tool, web development" />
 
-        {/* 预加载关键资源 */}
+        {/* Preloads */}
         <link rel="preload" href="/logo/android-chrome-512x512.png" as="image" />
-
-        {/* 预加载关键字体 - 改善LCP */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
-        {/* 关键CSS内联 - 改善LCP */}
+        {/* Critical CSS */}
         <style
           dangerouslySetInnerHTML={{
             __html: `
@@ -143,59 +141,58 @@ export default function Layout({
           }}
         />
 
-        {/* Favicon配置 */}
+        {/* Favicons */}
         <link rel="icon" href="/logo/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/logo/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/logo/favicon-16x16.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/logo/apple-touch-icon.png" />
         <meta name="theme-color" content="#ffffff" />
 
-        {/* JSON-LD结构化数据 - 帮助搜索引擎理解网站内容 */}
+        {/* Structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebApplication",
-              "name": t('webApp.name'),
-              "url": canonicalUrl,
-              "description": description,
-              "applicationCategory": t('webApp.category'),
-              "operatingSystem": t('webApp.operatingSystem'),
-              "offers": {
-                "@type": "Offer",
-                "price": t('webApp.price'),
-                "priceCurrency": t('webApp.currency')
+              '@context': 'https://schema.org',
+              '@type': 'WebApplication',
+              name: t('webApp.name'),
+              url: canonicalUrl,
+              description,
+              applicationCategory: t('webApp.category'),
+              operatingSystem: t('webApp.operatingSystem'),
+              offers: {
+                '@type': 'Offer',
+                price: t('webApp.price'),
+                priceCurrency: t('webApp.currency')
               },
-              "creator": {
-                "@type": "Organization",
-                "name": t('webApp.creator'),
-                "url": siteUrl
+              creator: {
+                '@type': 'Organization',
+                name: t('webApp.creator'),
+                url: siteUrl
               },
-              "featureList": t('webApp.features'),
-              "browserRequirements": t('webApp.browserRequirements'),
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": '4.8',
-                "ratingCount": '1000'
+              featureList: t('webApp.features'),
+              browserRequirements: t('webApp.browserRequirements'),
+              aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: '4.8',
+                ratingCount: '1000'
               }
             })
           }}
         />
 
-        {/* BreadcrumbList结构化数据 */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              "itemListElement": [
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
                 {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": 'Home',
-                  "item": siteUrl
+                  '@type': 'ListItem',
+                  position: 1,
+                  name: 'Home',
+                  item: siteUrl
                 }
               ]
             })
@@ -204,15 +201,10 @@ export default function Layout({
       </Head>
 
       <div className="min-h-screen bg-white flex flex-col">
-        {/* 导航 */}
         <Header />
-
-        {/* 主要内容区域 */}
         <main className="flex-1" role="main" aria-label="Pixels to Inches Converter">
           {children}
         </main>
-
-        {/* 页脚 */}
         <Footer />
       </div>
     </>

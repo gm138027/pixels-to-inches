@@ -1,9 +1,9 @@
-﻿import React from 'react';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { useTranslations } from '../../lib/translations';
-import Header from './Header';
-import Footer from './Footer';
+﻿import React from "react";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { useTranslations } from "../../lib/translations";
+import Header from "./Header";
+import Footer from "./Footer";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -11,42 +11,45 @@ interface LayoutProps {
   description?: string;
 }
 
-const DEFAULT_SITE_URL = 'https://pixelstoinches.com';
+const DEFAULT_SITE_URL = "https://pixelstoinches.com";
+const SUPPORTED_LOCALES = ["en", "fr"] as const;
+const DEFAULT_LOCALE = SUPPORTED_LOCALES[0];
 const OG_LOCALE_MAP: Record<string, string> = {
-  en: 'en_US',
-  fr: 'fr_FR'
+  en: "en_US",
+  fr: "fr_FR"
 };
 
 export default function Layout({
   children,
-  title = 'Pixels to Inches - Free Online Tool',
-  description = 'Free online pixels to inches converter. Instantly convert PX to IN with DPI/PPI support for screens and printers. No registration required.'
+  title = "Pixels to Inches - Free Online Tool",
+  description = "Free online pixels to inches converter. Instantly convert PX to IN with DPI/PPI support for screens and printers. No registration required."
 }: LayoutProps) {
   const router = useRouter();
   const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || DEFAULT_SITE_URL;
-  const siteUrl = configuredSiteUrl.replace(/\/$/, '');
+  const siteUrl = configuredSiteUrl.replace(/\/$/, "");
 
-  const locales = router.locales || ['en'];
-  const defaultLocale = router.defaultLocale || locales[0];
+  const routerLocales = router.locales && router.locales.length > 0 ? router.locales : SUPPORTED_LOCALES;
+  const locales = Array.from(new Set([...SUPPORTED_LOCALES, ...routerLocales]));
+  const defaultLocale = router.defaultLocale || DEFAULT_LOCALE;
   const activeLocale = router.locale || defaultLocale;
 
-  const asPath = router.asPath.split('#')[0];
-  const pathWithoutQuery = asPath.split('?')[0] || '/';
+  const asPath = router.asPath.split("#")[0];
+  const pathWithoutQuery = asPath.split("?")[0] || "/";
 
   const stripLocale = (path: string) => {
-    if (!path.startsWith('/')) {
-      return path || '/';
+    if (!path.startsWith("/")) {
+      return path || "/";
     }
 
-    const segments = path.split('/');
+    const segments = path.split("/");
     const maybeLocale = segments[1];
 
     if (locales.includes(maybeLocale)) {
       segments.splice(1, 1);
     }
 
-    const stripped = segments.join('/') || '/';
-    return stripped === '' ? '/' : stripped;
+    const stripped = segments.join("/") || "/";
+    return stripped === "" ? "/" : stripped;
   };
 
   const basePath = stripLocale(pathWithoutQuery);
@@ -55,21 +58,21 @@ export default function Layout({
       return basePath;
     }
 
-    return basePath === '/' ? `/${locale}` : `/${locale}${basePath}`;
+    return basePath === "/" ? `/${locale}` : `/${locale}${basePath}`;
   };
 
   const canonicalPath = getPathForLocale(defaultLocale);
-  const canonicalUrl = `${siteUrl}${canonicalPath === '/' ? '' : canonicalPath}` || siteUrl;
+  const canonicalUrl = `${siteUrl}${canonicalPath === "/" ? "" : canonicalPath}` || siteUrl;
   const ogImageUrl = `${siteUrl}/logo/android-chrome-512x512.png`;
 
   const alternateLinks = locales.map((locale) => {
     const localePath = getPathForLocale(locale);
-    const href = `${siteUrl}${localePath === '/' ? '' : localePath}`;
+    const href = `${siteUrl}${localePath === "/" ? "" : localePath}`;
 
     return { locale, href };
   });
 
-  const t = useTranslations('seo');
+  const t = useTranslations("seo");
 
   return (
     <>
@@ -103,7 +106,7 @@ export default function Layout({
         <meta property="og:image:width" content="512" />
         <meta property="og:image:height" content="512" />
         <meta property="og:image:alt" content="Pixels to Inches - Free Online Tool" />
-        <meta property="og:locale" content={OG_LOCALE_MAP[activeLocale] || OG_LOCALE_MAP.en} />
+        <meta property="og:locale" content={OG_LOCALE_MAP[activeLocale] || OG_LOCALE_MAP[DEFAULT_LOCALE]} />
         {alternateLinks
           .filter(({ locale }) => locale !== activeLocale)
           .map(({ locale }) => (
@@ -153,29 +156,29 @@ export default function Layout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'WebApplication',
-              name: t('webApp.name'),
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              name: t("webApp.name"),
               url: canonicalUrl,
               description,
-              applicationCategory: t('webApp.category'),
-              operatingSystem: t('webApp.operatingSystem'),
+              applicationCategory: t("webApp.category"),
+              operatingSystem: t("webApp.operatingSystem"),
               offers: {
-                '@type': 'Offer',
-                price: t('webApp.price'),
-                priceCurrency: t('webApp.currency')
+                "@type": "Offer",
+                price: t("webApp.price"),
+                priceCurrency: t("webApp.currency")
               },
               creator: {
-                '@type': 'Organization',
-                name: t('webApp.creator'),
+                "@type": "Organization",
+                name: t("webApp.creator"),
                 url: siteUrl
               },
-              featureList: t('webApp.features'),
-              browserRequirements: t('webApp.browserRequirements'),
+              featureList: t("webApp.features"),
+              browserRequirements: t("webApp.browserRequirements"),
               aggregateRating: {
-                '@type': 'AggregateRating',
-                ratingValue: '4.8',
-                ratingCount: '1000'
+                "@type": "AggregateRating",
+                ratingValue: "4.8",
+                ratingCount: "1000"
               }
             })
           }}
@@ -185,13 +188,13 @@ export default function Layout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'BreadcrumbList',
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
               itemListElement: [
                 {
-                  '@type': 'ListItem',
+                  "@type": "ListItem",
                   position: 1,
-                  name: 'Home',
+                  name: "Home",
                   item: siteUrl
                 }
               ]

@@ -52,12 +52,16 @@
     "yResolution": "Résolution Y",
     "resolutionUnit": "Unité de résolution",
     "imageWidth": "Largeur de l'image",
+    "physicalSize": "Taille physique",
     "fileSize": "Taille du fichier",
     "fileFormat": "Format de fichier",
     "colorDepth": "Profondeur de couleur",
     "compressionType": "Type de compression",
     "creationDate": "Date de création",
-    "lastModified": "Dernière modification"
+    "lastModified": "Dernière modification",
+    "dpiUnit": "PPP",
+    "pixelsUnit": "pixels",
+    "inchesUnit": "pouces"
   },
   "imageAnalyzer": {
     "title": "Résultats de l'analyse d'image",

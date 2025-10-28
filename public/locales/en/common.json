@@ -54,13 +54,16 @@
     "resolutionUnit": "Resolution Unit",
 
     "imageWidth": "Image Width",
-
+    "physicalSize": "Physical Size",
     "fileSize": "File Size",
     "fileFormat": "File Format",
     "colorDepth": "Color Depth",
     "compressionType": "Compression Type",
     "creationDate": "Creation Date",
-    "lastModified": "Last Modified"
+    "lastModified": "Last Modified",
+    "dpiUnit": "DPI",
+    "pixelsUnit": "pixels",
+    "inchesUnit": "inches"
   },
   "imageAnalyzer": {
     "title": "Image Analysis Results",

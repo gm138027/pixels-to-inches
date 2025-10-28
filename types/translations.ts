@@ -1,14 +1,11 @@
 /**
- * 自动生成的翻译类型定义
- * 请勿手动修改此文件
- * 
- * 生成时间: 2025-09-03T13:26:44.594Z
- * 基于语言: en
+ * 鑷姩鐢熸垚鐨勭炕璇戠被鍨嬪畾锟? * 璇峰嬁鎵嬪姩淇敼姝ゆ枃锟? * 
+ * 鐢熸垚鏃堕棿: 2025-10-28T03:31:04.975Z
+ * 鍩轰簬璇█: en
  */
 
 /**
- * 所有可用的翻译键
- */
+ * 鎵€鏈夊彲鐢ㄧ殑缈昏瘧锟? */
 export type TranslationKey =
   | 'common.copySuccess'
   | 'breadcrumb.home'
@@ -52,12 +49,16 @@ export type TranslationKey =
   | 'imageInfo.yResolution'
   | 'imageInfo.resolutionUnit'
   | 'imageInfo.imageWidth'
+  | 'imageInfo.physicalSize'
   | 'imageInfo.fileSize'
   | 'imageInfo.fileFormat'
   | 'imageInfo.colorDepth'
   | 'imageInfo.compressionType'
   | 'imageInfo.creationDate'
   | 'imageInfo.lastModified'
+  | 'imageInfo.dpiUnit'
+  | 'imageInfo.pixelsUnit'
+  | 'imageInfo.inchesUnit'
   | 'imageAnalyzer.title'
   | 'imageAnalyzer.dragDropHint'
   | 'imageAnalyzer.supportedFormats'
@@ -280,7 +281,7 @@ export type TranslationKey =
   | 'terms.lastUpdated';
 
 /**
- * 所有可用的命名空间
+ * 鎵€鏈夊彲鐢ㄧ殑鍛藉悕绌洪棿
  */
 export type TranslationNamespace =
   | 'common'
@@ -298,7 +299,7 @@ export type TranslationNamespace =
   | 'terms';
 
 /**
- * 翻译函数类型
+ * 缈昏瘧鍑芥暟绫诲瀷
  */
 export type TranslationFunction = (
   key: TranslationKey,
@@ -306,7 +307,7 @@ export type TranslationFunction = (
 ) => string;
 
 /**
- * 带命名空间的翻译函数类型
+ * 甯﹀懡鍚嶇┖闂寸殑缈昏瘧鍑芥暟绫诲瀷
  */
 export type NamespacedTranslationFunction<T extends TranslationNamespace> = (
   key: T extends 'common' 
@@ -318,7 +319,7 @@ export type NamespacedTranslationFunction<T extends TranslationNamespace> = (
 ) => string;
 
 /**
- * useTranslations Hook 类型
+ * useTranslations Hook 绫诲瀷
  */
 export interface UseTranslationsHook {
   (): TranslationFunction;
@@ -326,10 +327,10 @@ export interface UseTranslationsHook {
 }
 
 /**
- * 翻译统计信息
+ * 缈昏瘧缁熻淇℃伅
  */
 export interface TranslationStats {
-  totalKeys: 268;
+  totalKeys: 272;
   namespaces: 13;
-  generatedAt: '2025-09-03T13:26:44.594Z';
+  generatedAt: '2025-10-28T03:31:04.976Z';
 }

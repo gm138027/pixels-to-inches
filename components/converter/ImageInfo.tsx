@@ -12,19 +12,19 @@ export default function ImageInfo({ imageInfo }: ImageInfoProps) {
     <div className="flex-1 space-y-4">
       <div className="space-y-3">
         <div className="text-neutral-700">
-          {t('xResolution')}:{imageInfo.xResolution}<span className="text-sm"> DPI</span>
+          {t('xResolution')}: {imageInfo.xResolution}<span className="text-sm"> {t('dpiUnit')}</span>
         </div>
 
         <div className="text-neutral-700">
-          {t('yResolution')}:{imageInfo.yResolution}<span className="text-sm"> DPI</span>
+          {t('yResolution')}: {imageInfo.yResolution}<span className="text-sm"> {t('dpiUnit')}</span>
         </div>
         
         <div className="text-neutral-700">
-          {t('imageWidth')}: {imageInfo.width} x {imageInfo.height}<span className="text-sm"> pixels</span>
+          {t('imageWidth')}: {imageInfo.width} x {imageInfo.height}<span className="text-sm"> {t('pixelsUnit')}</span>
         </div>
         
         <div className="text-neutral-700">
-          Size:{imageInfo.physicalWidth.toFixed(2)}x{imageInfo.physicalHeight.toFixed(2)}<span className="text-sm"> inches</span>
+          {t('physicalSize')}: {imageInfo.physicalWidth.toFixed(2)}x{imageInfo.physicalHeight.toFixed(2)}<span className="text-sm"> {t('inchesUnit')}</span>
         </div>
         
         <div className="text-neutral-700">
@@ -41,3 +41,7 @@ export default function ImageInfo({ imageInfo }: ImageInfoProps) {
     </div>
   );
 }
+
+
+
+
